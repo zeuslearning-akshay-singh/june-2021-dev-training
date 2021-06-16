@@ -4,11 +4,9 @@ body {
   }
 
 h1{
-    border: 10px solid crimson;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: crimson ;
+      border-bottom-style: solid;
+      border-bottom-color: crimson;
+      border-bottom-width: 10px;
 }
 
 h1{ 
