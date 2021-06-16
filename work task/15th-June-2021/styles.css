@@ -1,0 +1,70 @@
+body {
+    background-color:palegoldenrod;
+    font-family: sans-serif;
+  }
+
+h1{
+    border: 10px solid crimson;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: crimson ;
+}
+
+h1{ 
+      color:white;
+      text-align: center;
+      font-style: italic;
+      font-weight: 100;
+      letter-spacing: 10px;
+      
+      
+  }
+
+h2{
+    background-color: green;
+    color:white;
+    text-indent: 15px;
+}
+
+h3{
+    color: grey;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    font-style: italic;
+    color: crimson
+}
+
+strong{
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+table,th,td{
+    background-color: grey;
+}
+
+th{
+    font-weight: normal;
+}
+
+img{
+    border-style: dotted;
+    border-color: grey;
+}
+
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+    margin-top: 10px;
+}
+
+

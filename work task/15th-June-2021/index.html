@@ -1,0 +1,117 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Web Page</title>
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/lib/w3-colors-highway.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function validateform() {
+        var name = document.myform.name.value;
+        var comment = document.myform.comment.value;
+        if (
+          name == null &&
+          name == "" &&
+          comment == null &&
+          comment == "" &&
+          document.getElementById("male").checked == false &&
+          document.getElementById("female").checked == false
+        ) {
+          alert("All fields are required");
+        }
+
+        if (name == null || name == "") {
+          alert("Name can't be blank");
+          return false;
+        } else if (comment == null || comment == "") {
+          alert("Comment can't be blank");
+          return false;
+        }
+
+        if (
+          document.getElementById("male").checked == false &&
+          document.getElementById("female").checked == false
+        ) {
+          alert("radio button is not selected");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="w3-highway-red">My first web page</h1>
+    <h2>What this is</h2>
+    <p>
+      Welcome to my <em>first webpage</em>. I created this webpage without the
+      assistance of a webpage editior. Just my little text editor and a keen
+      <strong class="intro">understanding of html</strong>.
+    </p>
+    <h2>Why this is</h2>
+    <ul>
+      <li>To learn HTML</li>
+      <li>List element</li>
+      <ol>
+        <li>Home</li>
+        <li>FAQ</li>
+        <li>Contract</li>
+        <li>About</li>
+      </ol>
+      <li>Here I have created ordered and unordered list</li>
+    </ul>
+    <h2>ZeusLearning.com</h2>
+    <a
+      href="https://www.zeuslearning.com"
+      style="color: darkmagenta"
+      target="_blank"
+      >This link will open zeuslearning.com in new tab</a
+    >
+    <h2>On click of the following image navigate to Google.com</h2>
+    <a href="https://www.google.co.in"
+      ><img src="Image/google logo.jpeg" alt="Google Image" width="270px"
+    /></a>
+    <h3>Some random table</h3>
+    <table border="1" bordercolor="black">
+      <tr>
+        <th>Row 1, cell 1</th>
+        <th>Row 1, cell 2</th>
+        <th>Row 1, cell 3</th>
+      </tr>
+      <tr>
+        <td>Row 2, cell 1</td>
+        <td>Row 2, cell 2</td>
+        <td>Row 2, cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 3, cell 1</td>
+        <td>Row 3, cell 2</td>
+        <td>Row 3, cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 4, cell 1</td>
+        <td>Row 4, cell 2</td>
+        <td>Row 4, cell 3</td>
+      </tr>
+    </table>
+    <form name="myform" onsubmit="validateform()">
+      <h3>Some random form</h3>
+      <p><strong>Note:</strong> It looks the part, but won't do a anything</p>
+      Name:<br />
+      <input type="text" name="name" /><br />
+      Comments: <br /><br />
+      <textarea
+        name="comment"
+        cols="30"
+        rows="10"
+        placeholder="Your comments"
+      ></textarea
+      ><br /><br />
+      Are you <br />
+      <input type="radio" id="male" name="gender" />Male<br />
+      <input type="radio" id="female" name="gender" />Female<br />
+      <button type="submit">Submit Query</button>
+    </form>
+  </body>
+</html>
