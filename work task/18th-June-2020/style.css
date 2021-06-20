@@ -1,0 +1,110 @@
+/*=========== HTML ===============*/
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #eeeeee;
+  width: 100%;
+}
+
+/* ========== NAVBAR =========== */
+.navbar {
+  border-bottom: 3px solid #31b9e4;
+  background-color: black;
+  width: 100%;
+  padding-left: 2em;
+  padding-top: 1em;
+  position: fixed;
+}
+/* ======== VERTICAL============*/
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/*======== HEADER ================*/
+h1 {
+  flex: 1;
+}
+
+/*========= BODY =================*/
+.vertical {
+}
+.body {
+  display: flex;
+}
+
+.blank1 {
+  flex: 1;
+  width: 400px;
+}
+.main {
+  border-top: 5px solid #3ac7ec;
+  background-color: #ffffff;
+  width: 440px;
+  height: 600px;
+}
+.blank2 {
+  flex: 1;
+  width: 400px;
+}
+
+/*=========== INFO ===============*/
+.info {
+  display: flex;
+  justify-content: center;
+}
+.contact {
+  margin: 10px;
+}
+
+.vl {
+  border-left: 1px solid green;
+  height: 1.5em;
+  margin-top: 8px;
+}
+
+.about {
+  margin: 10px;
+}
+
+/*=========== FOOTER ===============*/
+.footer {
+  flex: 1;
+  justify-content: flex-end;
+  background-color: #e0e1e1;
+  width: 100%;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo {
+  margin: 5px 10px 0 10px;
+}
+
+.v2 {
+  margin: 6px 0;
+  border-left: 1px solid #0000001f;
+}
+
+.patent {
+  color: #616161;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 400px;
+  margin-left: 15px;
+}
+
+@media (max-width: 764px) {
+  .vertical-header {
+    margin-top: 3em;
+  }
+}
