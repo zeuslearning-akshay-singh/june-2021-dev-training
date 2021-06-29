@@ -1,0 +1,51 @@
+@media (min-width: 1154px) {
+  #div-bell {
+    top: 8.4%;
+    right: 10%;
+  }
+
+  #div-alert {
+    top: 8.4%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 1154px) {
+  #div-bell {
+    top: 6.3%;
+    right: 10%;
+  }
+
+  #div-alert {
+    top: 6.3%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #div-bell {
+    top: 7.9%;
+    right: -5%;
+  }
+
+  #div-alert {
+    top: 7.9%;
+    right: -9%;
+  }
+}
+
+@media (max-width: 768px) {
+  #div-bell {
+    top: 6%;
+    right: 20%;
+  }
+
+  #div-alert {
+    top: 6%;
+    right: 15%;
+  }
+
+  .hamburger {
+    top: 6%;
+  }
+}
