@@ -1,0 +1,80 @@
+<div class="vertical"></div>
+<div class="header">
+  <div><h1 class="vertical-header"></h1></div>
+</div>
+<div class="horizontal">
+  <div class="body">
+    <div class="blank1"></div>
+
+    <!-- Login form --->
+    <div class="main">
+      <div class="title">
+        <img class="back" [src]="imgBackLogin" alt="Back" />
+        <h1>Log in with Quantum</h1>
+      </div>
+      <form>
+        <div class="radio">
+          <input type="radio" name="place" id="district" value="district" />
+          <label for="district">District</label>
+
+          <input type="radio" name="place" id="school" value="school" />
+          <label for="school">Independent School</label>
+        </div>
+        <div class="drop">
+          <label for="state">State*</label> <br />
+
+          <select class="input" name="state" id="state">
+            <option value="alabama">Alabama</option>
+          </select>
+        </div>
+        <div class="drop">
+          <label for="state1">District*</label> <br />
+
+          <select class="input" name="state1" id="state1">
+            <option value="alabama-d">Alabama School District</option>
+          </select>
+        </div>
+        <div class="email">
+          <input
+            class="input"
+            type="email"
+            id="uname"
+            name="uname"
+            placeholder="Username/Email ID*"
+          />
+          <a href="#">FORGOT USERNAME?</a>
+        </div>
+        <div class="pass">
+          <input
+            class="password"
+            type="password"
+            id="myPassword"
+            name="upass"
+            placeholder="Password*"
+          />
+          <img class="preview" [src]="imgPreviewLogin" />
+          <a href="#">FORGOT PASSWORD?</a>
+        </div>
+        <div class="rem">
+          <input
+            type="checkbox"
+            id="remember"
+            name="remember"
+            value="remember"
+          />
+          <label for="remember">Remember Me</label><br />
+        </div>
+        <div class="btn">
+          <button type="button">
+            <a
+              routerLink="/dashboard-component"
+              style="font-weight: bold; color: black"
+              >LOG IN</a
+            >
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="blank2"></div>
+  </div>
+</div>

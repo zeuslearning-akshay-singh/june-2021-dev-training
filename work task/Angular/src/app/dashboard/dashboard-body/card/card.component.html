@@ -1,0 +1,76 @@
+<!----Main ----------->
+<div class="card-container">
+  <!---- Image and content left and right -->
+  <div class="card-top">
+    <!---- Image  --->
+    <div class="card-image">
+      <img class="card-image-book" src="{{ course.image }}" />
+    </div>
+
+    <!---- Card Content  --->
+    <div class="card-content">
+      <!---- Content-Head  --->
+      <div class="card-content-head">
+        <h1 class="card-topic">{{ course.topic }}</h1>
+        <img src="assets/icon/favourite.svg" />
+      </div>
+
+      <!---- Content-Bottom  --->
+      <div class="card-content-bottom">
+        <label class="card-subject">{{ course.subject }}</label>
+        <label class="card-grade">
+          Grade {{ course.grade }}
+          <label class="card-extragrade">{{ course.extragrade }}</label></label
+        >
+        <!---- Content-Syllabus  --->
+        <div
+          class="card-syllabus-content"
+          *ngIf="course.syllabus === true; else elseBlock"
+        >
+          <div class="card-syllabus">
+            <strong>{{ course.units }}</strong> Units
+          </div>
+          <div class="card-syllabus">
+            <strong>{{ course.lessons }} </strong> Lessons
+          </div>
+          <div class="card-syllabus">
+            <strong>{{ course.topics }} </strong> Topics
+          </div>
+        </div>
+        <ng-template #elseBlock></ng-template>
+
+        <!---- If else for classes -->
+        <div *ngIf="course.class === true; else elseSpan">
+          <select class="card-select">
+            <option class="card-option-classes">{{ course.classes }}</option>
+          </select>
+        </div>
+
+        <ng-template #elseSpan>
+          <select class="card-selected">
+            <option class="card-option-noclasses">No Classes</option>
+          </select>
+        </ng-template>
+
+        <!---- Card Content base -------->
+        <div class="card-content-base">
+          <div class="card-students">{{ course.students }}</div>
+          <div class="card-line"></div>
+          <div class="card-duration">{{ course.duration }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---Card - Footer -->
+  <div class="card-footer">
+    <img class="card-base" src="assets/icon/preview.svg" alt="preview" />
+    <img class="card-base" src="assets/icon/manage course.svg" alt="courses" />
+    <img
+      class="card-base"
+      src="assets/icon/grade submissions.svg"
+      alt="submission"
+    />
+    <img class="card-base" src="assets/icon/reports.svg" alt="reports" />
+  </div>
+</div>

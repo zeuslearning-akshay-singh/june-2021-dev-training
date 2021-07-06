@@ -1,0 +1,187 @@
+/* Navbar */
+nav {
+  display: flex;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  padding-top: 10px;
+}
+
+/* Element */
+.element {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.dashboard {
+  padding: 10px 1em;
+  border-bottom: 2px solid white;
+  margin: 0;
+}
+
+.dashboard-edit {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.contents {
+  padding: 10px 1em;
+}
+
+.con-edit {
+  text-decoration: none;
+  color: #3fd28b;
+}
+
+.users {
+  margin: 10px 1em;
+}
+
+.reports {
+  margin: 10px 1em;
+}
+
+.admin {
+  margin: 10px 1em;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.overlay {
+  background-color: #2a7ff3;
+  font-size: 10px;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+  text-align: center;
+  padding-top: 1px;
+  position: absolute;
+  bottom: 25px;
+  right: 157px;
+  color: white;
+}
+
+.overlay1 {
+  background-color: #2a7ff3;
+  font-size: 10px;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+  text-align: center;
+  padding-top: 1px;
+  position: absolute;
+  bottom: 25px;
+  right: 98px;
+  color: white;
+}
+
+.overlay2 {
+  background-color: white;
+  font-size: 10px;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+  text-align: center;
+  padding-top: 1px;
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+}
+
+.bell {
+  margin: 15px 1em 0 1em;
+}
+
+.notification {
+  margin: 15px 1em 0 1em;
+}
+
+.profile-id {
+  margin-right: 3em;
+}
+
+.myself {
+  height: 45px;
+  width: 45px;
+}
+
+.togg {
+  height: 27px;
+  margin-right: 25px;
+  margin-top: 10px;
+  display: none;
+}
+/*--------- Media Query -----------------*/
+@media (max-width: 814px) {
+  .togg {
+    display: block;
+  }
+
+  .element {
+    display: none;
+  }
+
+  .profile {
+    margin-left: auto;
+  }
+
+  .overlay {
+    background-color: #2a7ff3;
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+    text-align: center;
+    padding-top: 1px;
+    position: absolute;
+    bottom: 22px;
+    right: 210px;
+    color: white;
+  }
+
+  .overlay1 {
+    background-color: #2a7ff3;
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+    text-align: center;
+    padding-top: 1px;
+    position: absolute;
+    bottom: 23px;
+    right: 155px;
+    color: white;
+  }
+
+  .overlay2 {
+    background-color: white;
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+    text-align: center;
+    padding-top: 1px;
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+  }
+}
+
+@media (max-width: 399px) {
+  .overlay {
+    display: none;
+  }
+  .overlay1 {
+    display: none;
+  }
+  .overlay2 {
+    display: none;
+  }
+}

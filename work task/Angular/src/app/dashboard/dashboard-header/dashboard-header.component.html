@@ -1,0 +1,85 @@
+<nav class="navbar">
+  <!-- Logo ---->
+  <div class="logo-header">
+    <img src="assets/icon/logo used in header.svg" alt="Logo" />
+  </div>
+
+  <!-- element ---->
+  <div class="element">
+    <div class="dashboard">
+      <a class="dashboard-edit" href="#">DASHBOARD</a>
+    </div>
+
+    <div class="contents">
+      <a class="con-edit" href="#">CONTENT</a>
+    </div>
+
+    <div class="users">
+      <a class="con-edit" href="#">USERS</a>
+    </div>
+
+    <div class="reports">
+      <a class="con-edit" href="#">REPORTS</a>
+    </div>
+
+    <div class="admin">
+      <a class="con-edit" href="#">ADMIN</a>
+    </div>
+  </div>
+
+  <!-- profile ---->
+  <div class="profile">
+    <div class="bell">
+      <a
+        ><img
+          class="alert"
+          (click)="mybell()"
+          src="assets/icon/alerts.svg"
+          alt=""
+      /></a>
+      <div *ngIf="!ovBell">
+        <div class="overlay" id="overlay-bell">7</div>
+      </div>
+    </div>
+
+    <div class="notification">
+      <a
+        ><img
+          class="announcement"
+          (click)="myalert()"
+          src="assets/icon/announcements.svg"
+          alt=""
+      /></a>
+      <div *ngIf="!ovAlert">
+        <div class="overlay1" id="overlay-alert">5</div>
+      </div>
+    </div>
+
+    <div class="profile-id">
+      <a href="#"
+        ><img class="myself" src="assets/Image/icons8-male-user-96.png" alt=""
+      /></a>
+      <div class="overlay2">?</div>
+    </div>
+
+    <!-- Toggle ---->
+    <a class="toggle">
+      <img
+        class="togg"
+        (click)="myFunction()"
+        src="assets/Image/toggle.PNG"
+        alt="toggle"
+      />
+    </a>
+  </div>
+</nav>
+
+<div class="menubar" *ngIf="!isCollapsed">
+  <app-menu></app-menu>
+</div>
+<div class="alertBar" *ngIf="!isAlert">
+  <app-alert></app-alert>
+</div>
+<div class="isBell" *ngIf="!isBell">
+  <app-bells></app-bells>
+</div>

@@ -1,0 +1,123 @@
+/*======= Form main ===========
+body {
+  height: 100%;
+}
+.container {
+  border: 2px solid yellow;
+  width: 400px;
+  height: 600px;
+}
+*/
+
+/*======== HEADER ================*/
+h1 {
+  flex: 1;
+}
+
+/*========= BODY =================*/
+
+.body {
+  display: flex;
+}
+
+.blank1 {
+  flex: 1;
+  width: 400px;
+}
+.main {
+  background-color: #ffffff;
+  width: 440px;
+  height: 600px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--unnamed-color-ffffff);
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  opacity: 1;
+  border-top: 5px solid #3ac7ec;
+}
+.blank2 {
+  flex: 1;
+  width: 400px;
+}
+
+.base {
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+}
+
+/*==== Title ========*/
+.title {
+  display: flex;
+  justify-content: space-around;
+  font-family: QuickSand-Medium;
+}
+.back {
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+  margin-left: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* ======== FORM ===========*/
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 400px;
+  margin-left: 15px;
+}
+
+.input {
+  height: 3em;
+  width: 98%;
+  border-style: none;
+  border-bottom: 2px solid #ccc7c7;
+}
+
+.password {
+  height: 3em;
+  width: 98%;
+  border-style: none;
+  border-bottom: 2px solid #ccc7c7;
+  /*background-image: url("icon/preview.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 2.5em;*/
+}
+
+.preview {
+  position: absolute;
+  right: 5px;
+  top: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: #1f7a54;
+}
+
+.email {
+  text-align: right;
+}
+
+.pass {
+  position: relative;
+  text-align: right;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 40%;
+  height: 2.5em;
+  border-style: none;
+  background-color: #3fd28b;
+}
