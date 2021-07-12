@@ -1,0 +1,171 @@
+@mixin displayflex() {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Body */
+@mixin bodyDisplayFlex {
+  display: flex;
+}
+
+@mixin inlineFlex {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$marginBodyHeader: 3px;
+$bodyBgColor: #ffffff;
+$circleColor: #3fd28b;
+$margin: 24px;
+$btnheight: 28px;
+$btnwidth: 90px;
+
+.main-body {
+  margin: $margin;
+}
+
+.main-body-header {
+  @include displayflex();
+  padding: 12px 16px;
+  background: $bodyBgColor;
+
+  .package {
+    @include displayflex();
+
+    .number {
+      margin-right: $marginBodyHeader;
+      height: 32px;
+      width: 32px;
+      border-radius: 16px;
+      background: $circleColor;
+      @include inlineFlex();
+    }
+
+    .text {
+      margin-left: $marginBodyHeader;
+      padding: 6px 0;
+    }
+  }
+
+  .underline {
+    border-bottom: 2px solid #0000003d;
+    width: 30%;
+    height: 0%;
+    padding: 8px 0;
+  }
+}
+
+/*Body */
+
+@mixin flex-property {
+  display: flex;
+}
+
+$txtcolor: #222222;
+$grycolor: #666666;
+$novalue: none;
+$bodyBgColor: #ffffff;
+
+.main-body-content {
+  @include flex-property();
+  justify-content: space-between;
+  margin: 24px 0;
+  background: $bodyBgColor;
+  margin-bottom: 24px;
+
+  form {
+    @include flex-property();
+    flex-direction: column;
+    justify-content: space-between;
+    height: 876px;
+    padding: 24px;
+    width: 70%;
+
+    label {
+      font-size: 15px;
+      color: $grycolor;
+    }
+
+    .input {
+      border: $novalue;
+      font-size: 20px;
+      color: $txtcolor;
+      border-bottom: 2px solid $grycolor;
+      width: 100%;
+    }
+
+    .code {
+      width: 20px;
+    }
+
+    .upload-resume {
+      border: $novalue;
+    }
+
+    .job-roles {
+      font-size: 20px;
+      color: $txtcolor;
+    }
+
+    .update {
+      font-size: 20px;
+      color: $txtcolor;
+    }
+
+    .phone-call {
+      margin: 5px;
+      border: $novalue;
+      border-bottom: 2px solid $grycolor;
+    }
+  }
+
+  .profile {
+    width: 300px; /* Change it */
+    @include flex-property();
+    flex-direction: column;
+    align-items: center;
+    margin: 24px;
+    height: 15%;
+    width: 15%;
+
+    .profile-picture {
+      height: 134px;
+      width: 134px;
+    }
+
+    .upload-picture {
+      border: $novalue;
+    }
+
+    .display-picture {
+      color: #1f7a54;
+    }
+
+    label {
+      font-size: 15px;
+    }
+  }
+}
+
+/* Footer */
+.footer-button {
+  @include flex-property();
+  justify-content: center;
+  padding-bottom: 24px;
+
+  .next-button {
+    height: $btnheight;
+    width: $btnwidth;
+
+    .Next {
+      height: $btnheight;
+      width: $btnwidth;
+      border: none;
+      background: #3fd28b 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 5px #0000003d;
+      border-radius: 2px;
+      opacity: 1;
+    }
+  }
+}

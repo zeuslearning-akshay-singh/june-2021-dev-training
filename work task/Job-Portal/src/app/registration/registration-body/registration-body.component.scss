@@ -1,0 +1,120 @@
+@mixin displayflex() {
+  display: flex;
+  justify-content: space-between;
+}
+
+$headcolor: #3c4e62;
+$margin: 24px;
+
+$txtcolor: white;
+
+$btnheight: 28px;
+$btnwidth: 90px;
+$btnmargin: 8px;
+
+.head {
+  @include displayflex();
+  padding: 14px $margin;
+  background: $headcolor;
+
+  .image {
+    .arrow {
+      transform: rotate(270deg);
+      padding-top: 8px;
+    }
+  }
+
+  .title {
+    color: $txtcolor;
+    padding-top: 5px;
+    margin-left: 12%;
+  }
+
+  .buttons {
+    .button-link {
+      height: $btnheight;
+      width: $btnwidth;
+      border: none;
+    }
+
+    .create-button {
+      height: $btnheight;
+      width: $btnwidth;
+      margin-left: $btnmargin;
+      border: none;
+      background: #3fd28b 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 5px #0000003d;
+      border-radius: 2px;
+      opacity: 1;
+    }
+
+    .cancel-button {
+      height: $btnheight;
+      width: $btnwidth;
+      margin-right: $btnmargin;
+      border: none;
+      background: #3fd28b 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 5px #0000003d;
+      border-radius: 2px;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin displayflex() {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Body */
+@mixin bodyDisplayFlex {
+  display: flex;
+}
+
+@mixin inlineFlex {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$marginBodyHeader: 3px;
+$bodyBgColor: #ffffff;
+$circleColor: #3fd28b;
+$margin: 24px;
+$btnheight: 28px;
+$btnwidth: 90px;
+
+.main-body {
+  margin: $margin;
+}
+
+.main-body-header {
+  @include displayflex();
+  padding: 12px 16px;
+  background: $bodyBgColor;
+
+  .package {
+    @include displayflex();
+
+    .number {
+      margin-right: $marginBodyHeader;
+      height: 32px;
+      width: 32px;
+      border-radius: 16px;
+      background: $circleColor;
+      @include inlineFlex();
+    }
+
+    .text {
+      margin-left: $marginBodyHeader;
+      padding: 6px 0;
+    }
+  }
+
+  .underline {
+    border-bottom: 2px solid #0000003d;
+    width: 30%;
+    height: 0%;
+    padding: 8px 0;
+  }
+}
