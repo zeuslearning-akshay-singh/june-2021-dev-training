@@ -74,7 +74,7 @@ $bodyBgColor: #ffffff;
   background: $bodyBgColor;
   margin-bottom: 24px;
 
-  form {
+  .pers-info-form {
     @include flex-property();
     flex-direction: column;
     justify-content: space-between;
@@ -97,6 +97,9 @@ $bodyBgColor: #ffffff;
 
     .code {
       width: 20px;
+      margin: 5px;
+      border: $novalue;
+      border-bottom: 2px solid $grycolor;
     }
 
     .upload-resume {
@@ -136,6 +139,7 @@ $bodyBgColor: #ffffff;
 
     .upload-picture {
       border: $novalue;
+      padding-left: 35%;
     }
 
     .display-picture {

@@ -82,7 +82,7 @@ $width: 45%;
       opacity: 1;
       padding: 24px;
 
-      form {
+      .quali-form {
         @include qualificationflex();
         flex-direction: column;
         justify-content: space-between;
@@ -268,27 +268,5 @@ $width: 45%;
 
   /* Button */
 
-  .qualification-buttons {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
-    padding-top: 32px;
-    padding-bottom: 45px;
-  }
 
-  a {
-    height: $btnht;
-    width: 116px;
-  }
-
-  button {
-    margin: 8px;
-    height: $btnht;
-    width: $btnwidth;
-    background: $btncolor;
-    border: $novalue;
-    box-shadow: 0px 3px 5px #0000003d;
-    border-radius: 2px;
-    opacity: 1;
-  }
 }

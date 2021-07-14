@@ -8,6 +8,8 @@ import { RegistrationBodyComponent } from './registration-body/registration-body
 import { RegistrationPersonalInfoComponent } from './registration-personal-info/registration-personal-info.component';
 import { RegistrationQualificationComponent } from './registration-qualification/registration-qualification.component';
 import { RegistrationReviewComponent } from './registration-review/registration-review.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -15,7 +17,8 @@ import { RegistrationReviewComponent } from './registration-review/registration-
   declarations: [RegistrationComponentComponent, RegistrationHeaderComponent, RegistrationBodyComponent, RegistrationPersonalInfoComponent, RegistrationQualificationComponent, RegistrationReviewComponent],
   imports: [
     CommonModule,
-    RegistrationRoutingModule
+    RegistrationRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [RegistrationComponentComponent]
 })

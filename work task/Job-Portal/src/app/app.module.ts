@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { RegistrationModule } from './registration/registration.module';
+import { WalkinModule } from './walkin/walkin.module';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { RegistrationModule } from './registration/registration.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    RegistrationModule
+    RegistrationModule,
+    WalkinModule
   ],
   providers: [],
   bootstrap: [AppComponent]
