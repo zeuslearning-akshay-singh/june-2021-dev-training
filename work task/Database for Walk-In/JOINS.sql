@@ -1,27 +1,28 @@
--- Basic Queries ------
-
+-- Show Database :
 show databases;
+
+--Select Database as Quantamn : 
 use quantam;
+
+-- View Tables: 
 show tables;
 
+-- Select Queries: 
 select * from user; 
 
-show tables;
-
+-- UUID Demo
 select UUID();
 
+-- Drop databases
 drop database quantam;
 
-
--- Select, Insert and Delete in Quanatm Database ----
+-- Select, Update and Delete Commands for Quantam database
 
 select * from walk_in ;
 ALTER TABLE walk_in ADD COLUMN package varchar(25) not null;
-
 ALTER TABLE walk_in drop COLUMN package ;
 DELETE FROM walk_in WHERE walk_in_id = 3;
 
--- Inserting the data in table
 
 insert into walk_in(walk_in_title,start_date,end_date,things_to_remember,GUID,location_id,internship,internship_drive_id) values("Walk In for Multiple Job Roles",'2021-07-03','2021-07-04',"- Please report 30 MINUTES prior to your reporting time. - Download your Hall Ticket from below and carry it with you during your Walk-In.", UUID(),1,1,1);
 insert into walk_in(walk_in_title,start_date,end_date,things_to_remember,GUID,location_id,internship) values("Walk In for Designer Job Role",'2021-07-10','2021-07-11',"- Please report 30 MINUTES prior to your reporting time. - Download your Hall Ticket from below and carry it with you during your Walk-In.", UUID(),1,0);
@@ -43,7 +44,9 @@ insert into job_role(designation, package, job_description,job_requirement) valu
 
 select * from location;
 
-insert into location(address_line1, address_line2, city, zip_code, phone_number) values("Zeus Systems Pvt. Ltd. 1402, 14th Floor, Tower B, Peninsula Business Park.", "Ganpatrao Kadam Marg Lower Parel (W)" , "Mumbai" , "400 013", "91-22-66600000");
+insert into location(address_line1, address_line2, address_line3 , city, zip_code, phone_number) values("Zeus Systems Pvt. Ltd." , "1402, 14th Floor, Tower B, Peninsula Business Park., Ganpatrao Kadam Marg", "Lower Parel (W)" , "Mumbai" , "400 013", "91-22-66600000");
+insert into location(address_line1, address_line2, address_line3 , city, zip_code, phone_number) values("Zeus Systems Pvt. Ltd." , "2041, 7th Floor, Tower A, IT Business Park.", "Rajajinagar" , "Bangalore" , "530 068", "91-22-66600000");
+
 UPDATE location SET phone_number = "91-22-66600000" WHERE location_id = 1;
 UPDATE location SET zip_code = "400 013" WHERE location_id = 1;
 
@@ -66,6 +69,9 @@ select * from walk_in_has_job_role;
 insert into walk_in_has_job_role (walk_in_id, job_id) values (1, 1);
 insert into walk_in_has_job_role (walk_in_id, job_id) values (1, 2);
 insert into walk_in_has_job_role (walk_in_id, job_id) values (1, 3);
+insert into walk_in_has_job_role (walk_in_id, job_id) values (2, 1);
+insert into walk_in_has_job_role (walk_in_id, job_id) values (3, 1);
+insert into walk_in_has_job_role (walk_in_id, job_id) values (3, 2);
 
 select * from preference;
 
@@ -95,7 +101,7 @@ select location_id, city from location;
 select walk_in_id,walk_in_title,start_date, end_date,location_id from walk_in;
 select * from walk_in_has_job_role;
 
--- Basic Join Operations :
+-- JOINS Query ----------------------------------------------
 
 select walk_in_id, walk_in_title, start_date, end_date, walk_in.location_id, location.city
 from walk_in inner join location 
@@ -121,7 +127,7 @@ inner join walk_in on walk_in_has_job_role.walk_in_id = walk_in.walk_in_id )
 inner join location on walk_in.location_id = location.location_id )
 where walk_in.start_date >= '2021-07-01';
 
---Query for WalkIn Table as default using right join 
+-- WalkIn Table as default using right join 
 select walk_in.GUID, walk_in.walk_in_title, walk_in.start_date, walk_in.end_date, job_role.designation, location.city
 from (((job_role
 right join walk_in_has_job_role 
@@ -130,7 +136,7 @@ right join walk_in on walk_in_has_job_role.walk_in_id = walk_in.walk_in_id )
 inner join location on walk_in.location_id = location.location_id )
 where walk_in.start_date >= '2021-07-01' ;
 
--- Stored Procedure for WalkIn 
+-- Stored Procedure as Practice Query
 
 DELIMITER // 
 create procedure GetWalkIn()
@@ -145,11 +151,37 @@ where walk_in.start_date >= '2021-07-01' ;
 end //  
 DELIMITER ;
 
-call GetWalkIn();
+-- Joins for Main Frame 
+select * from location;
 
-Drop procedure if exists GetWalkIn;
+select * 
+from walk_in 
+where start_date >= '2021-07-01';
 
--------------------------------------------------------------------------------
+select walk_in.walk_in_id,  walk_in.GUID, location.location_id, location.city
+from walk_in 
+inner join location 
+on walk_in.location_id = location.location_id
+where start_date >= '2021-07-01';
+
+select w.GUID, w.walk_in_id, r.designation from ((walk_in w 
+inner join 
+walk_in_has_job_role j 
+on w.walk_in_id = j.walk_in_id)
+inner join job_role r 
+on j.job_id = r.job_id)
+where w.start_date >= '2021-07-01';
+
+-- Joins for practice Query 
+
+select walk_in.walk_in_title, walk_in.start_date, walk_in.end_date, job_role.designation, location.city
+from ((((job_role
+right join walk_in_has_job_role 
+on walk_in_has_job_role.job_id = job_role.job_id)
+right join walk_in on walk_in_has_job_role.walk_in_id = walk_in.walk_in_id )
+inner join location on walk_in.location_id = location.location_id )
+inner join walk_in_has_instruction on walk_in.walk_in_id = walk_in_has_instruction.walk_in_id)
+inner join instruction_type_enum on walk_in_has_instruction.walk_in_id = instruction_type_enum.Instruction_type_enum_id;
 
 select * from walk_in_has_instruction;
 select * from instruction_type_enum;
@@ -157,7 +189,6 @@ select * from round;
 select * from walk_in;
 
 -- WalkIn Table for Instructions using left join 
-
 select w.walk_in_id, i.Instruction , e.Instruction_text, r.rounds from ((walk_in w 
 inner join walk_in_has_instruction i 
 on w.walk_in_id = i.walk_in_id) 
@@ -166,26 +197,6 @@ on i.Instruction_type_enum_id = e.Instruction_type_enum_id)
 left join round r on i.round_id = r.round_id
 where w.walk_in_id = 1; 
 
--- Stored Procedure for GetInstruction
-
-DELIMITER // 
-create procedure GetInstruction()
-begin 
-select w.GUID,w.walk_in_id, i.Instruction , e.Instruction_text, r.rounds from ((walk_in w 
-inner join walk_in_has_instruction i 
-on w.walk_in_id = i.walk_in_id) 
-inner join instruction_type_enum e 
-on i.Instruction_type_enum_id = e.Instruction_type_enum_id)
-left join round r on i.round_id = r.round_id
-where w.walk_in_id = 1; 
-end //  
-DELIMITER ;
-
-call GetInstruction();
-
-Drop procedure if exists GetInstruction;
-
--------------- Time Slot ------------------
 
 select * from time_slot;
 select * from walk_in_has_time_slot;
@@ -200,27 +211,6 @@ inner join walk_in w
 on t.walk_in_id = w.walk_in_id 
 where w.walk_in_id = 1;
 
--- Stored procedure Timeslot
-
-DELIMITER // 
-create procedure GetTimeslot()
-begin
- 
-select w.GUID, w.walk_in_id, s.start_time, s.end_time from (time_slot s
-right join walk_in_has_time_slot t
-on s.time_slot_id = t.time_slot_id)
-inner join walk_in w 
-on t.walk_in_id = w.walk_in_id 
-where w.walk_in_id = 1;
-
-end //  
-DELIMITER ;
-
-call GetTimeslot();
-
-Drop procedure if exists GetTimeslot;
-
---------- Preferences --------------
 
 select * from job_role;
 select * from walk_in_has_job_role;
@@ -236,26 +226,6 @@ inner join job_role r
 on j.job_id = r.job_id)
 where w.walk_in_id = 1 ;
 
--- stored procedure for Preferences 
-
-DELIMITER // 
-create procedure GetPreferences()
-begin 
-
-select w.GUID, r.designation from ((walk_in w 
-inner join 
-walk_in_has_job_role j 
-on w.walk_in_id = j.walk_in_id)
-inner join job_role r 
-on j.job_id = r.job_id)
-where w.walk_in_id = 1 ;
-
-end //  
-DELIMITER ;
-
-call GetPreferences();
-
-Drop procedure if exists GetPreferences;
 
 -- WalkIn Table for Job Profile using inner join
 
@@ -267,28 +237,9 @@ inner join job_role r
 on j.job_id = r.job_id)
 where w.walk_in_id = 1 ;
 
---- Stored Procedure for Job Profile
 
-DELIMITER // 
-create procedure GetJobProfile()
-begin 
 
-select w.GUID, r.designation, r.package, r.job_description, r.job_requirement from ((walk_in w 
-inner join 
-walk_in_has_job_role j 
-on w.walk_in_id = j.walk_in_id)
-inner join job_role r 
-on j.job_id = r.job_id)
-where w.walk_in_id = 1 ;
-
-end //  
-DELIMITER ;
-
-call GetJobProfile();
-
-Drop procedure if exists GetJobProfile;
-
--- Join Quey for Hall ticket 
+-- Hall ticket 
 select * from walk_in;
 select * from registered_user;
 select * from location;
@@ -304,26 +255,142 @@ inner join walk_in w on t.walk_in_id = w.walk_in_id)
 inner join location l on l.location_id = w.location_id
 where r.register_id = 1 ;
 
--- Stored Procedure for Hall ticket  
+
+-- Overall Stored Procedures 
+
+-- 1. Stored procedure for Main Frame ::
 
 DELIMITER // 
-create procedure GetHallTicket()
+create procedure GetWalkIn(IN walkInDate DATE)
+begin 
+select GUID, walk_in_id, walk_in_title, start_date, end_date 
+from walk_in 
+where start_date >= walkInDate;
+
+select walk_in.walk_in_id,  walk_in.GUID, location.location_id, location.city
+from walk_in 
+inner join location 
+on walk_in.location_id = location.location_id
+where start_date >= walkInDate;
+
+select w.GUID, w.walk_in_id, r.designation from ((walk_in w 
+inner join 
+walk_in_has_job_role j 
+on w.walk_in_id = j.walk_in_id)
+inner join job_role r 
+on j.job_id = r.job_id)
+where w.start_date >= walkInDate;
+end //  
+DELIMITER ;
+
+Drop procedure if exists GetWalkIn;
+call GetWalkIn('2021-07-01');
+
+-- 2. Stored Procedure for GetInstruction
+
+DELIMITER // 
+create procedure GetInstruction(IN walkIn INT)
+begin 
+select w.GUID,w.walk_in_id, i.Instruction , e.Instruction_text, r.rounds from ((walk_in w 
+inner join walk_in_has_instruction i 
+on w.walk_in_id = i.walk_in_id) 
+inner join instruction_type_enum e 
+on i.Instruction_type_enum_id = e.Instruction_type_enum_id)
+left join round r on i.round_id = r.round_id
+where w.walk_in_id = walkIn; 
+end //  
+DELIMITER ;
+
+call GetInstruction(1);
+Drop procedure if exists GetInstruction;
+
+-- 3. Stored procedure Timeslot
+
+DELIMITER // 
+create procedure GetTimeslot(IN walkIn INT)
+begin
+ 
+select w.GUID, w.walk_in_id, s.start_time, s.end_time from (time_slot s
+right join walk_in_has_time_slot t
+on s.time_slot_id = t.time_slot_id)
+inner join walk_in w 
+on t.walk_in_id = w.walk_in_id 
+where w.walk_in_id = walkIn;
+
+end //  
+DELIMITER ;
+
+call GetTimeslot(1);
+
+Drop procedure if exists GetTimeslot;
+
+-- 4. Stored Procedure for Preferences 
+
+DELIMITER // 
+create procedure GetPreferences(IN walkIn INT)
+begin 
+
+select w.GUID, r.designation from ((walk_in w 
+inner join 
+walk_in_has_job_role j 
+on w.walk_in_id = j.walk_in_id)
+inner join job_role r 
+on j.job_id = r.job_id)
+where w.walk_in_id = walkIn ;
+
+end //  
+DELIMITER ;
+
+call GetPreferences(1);
+
+Drop procedure if exists GetPreferences;
+
+-- 5. Stored Procedure  for Job Roles 
+DELIMITER // 
+create procedure GetJobProfile(IN walkIn INT)
+begin 
+
+select w.GUID, r.designation, r.package, r.job_description, r.job_requirement from ((walk_in w 
+inner join 
+walk_in_has_job_role j 
+on w.walk_in_id = j.walk_in_id)
+inner join job_role r 
+on j.job_id = r.job_id)
+where w.walk_in_id = walkIn ;
+
+end //  
+DELIMITER ;
+
+call GetJobProfile(1);
+
+Drop procedure if exists GetJobProfile;
+
+-- 6. Stored Procedure for Hall ticket  
+
+DELIMITER // 
+create procedure GetHallTicket(IN regUser INT)
 begin 
 
 select w.GUID, t.date, s.start_time ,s.end_time, w.things_to_remember,
-l.address_line1,l.address_line2, l.city, l.zip_code,l.phone_number from (((registrated_user r
+l.address_line1,l.address_line2, l.address_line3 ,l.city, l.zip_code,l.phone_number from (((registrated_user r
 inner join walk_in_has_time_slot t
 on r.walk_in_time_slot_id = t.walk_in_time_slot_id)
 inner join time_slot s on t.time_slot_id = s.time_slot_id)
 inner join walk_in w on t.walk_in_id = w.walk_in_id)
 inner join location l on l.location_id = w.location_id
-where r.register_id = 1 ;
+where r.register_id = regUser ;
 
 end //  
 DELIMITER ;
 
-call GetHallTicket();
+call GetHallTicket(1);
 
 Drop procedure if exists GetHallTicket;
 
-
+-- Calling All the Stored Procedure 
+call GetWalkIn();
+call GetJobProfile();
+call GetHallTicket();
+call GetInstruction();
+call GetTimeslot ();
+call GetPreferences();
