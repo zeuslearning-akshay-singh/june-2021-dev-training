@@ -35,7 +35,7 @@
       </div>
     </div>
     <!--- Main-Body-Content ----->
-    <form (ngSubmit)="submit()" [formGroup]="multistep" >
+    <form (ngSubmit)="submit()" [formGroup]="register">
       <div class="per-info" *ngIf="step == 1">
         <app-registration-personal-info></app-registration-personal-info>
       </div>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="reviewed" *ngIf="step == 3">
-        <app-registration-review></app-registration-review>
+        <app-registration-review [registered]="data"></app-registration-review>
       </div>
 
       <div class="footer-buttons">
@@ -60,3 +60,4 @@
     </form>
   </div>
 </div>
+<pre>{{ register.value | json }}</pre>

@@ -107,13 +107,15 @@ $bodyBgColor: #ffffff;
     }
 
     .job-roles {
-      font-size: 20px;
+      font-size: 18px;
       color: $txtcolor;
+      margin: 3px;
     }
 
     .update {
-      font-size: 20px;
+      font-size: 18px;
       color: $txtcolor;
+      margin: 3px;
     }
 
     .phone-call {
@@ -172,4 +174,40 @@ $bodyBgColor: #ffffff;
       opacity: 1;
     }
   }
+}
+
+input[type=checkbox] {
+  display: block;
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+input[type=checkbox]:not(:checked) {
+  background: url(/assets/icon/checkbox-unchecked.svg);
+}
+
+input[type=checkbox]:checked {
+  background-image: url(/assets/icon/checkbox-checked.svg);
+    
+}
+
+.chkbx{
+  display:flex;
+
+}
+
+
+input[type="file"] {
+  display: none;
+}
+.file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }

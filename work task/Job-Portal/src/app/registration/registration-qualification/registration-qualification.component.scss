@@ -197,6 +197,8 @@ $width: 45%;
     .tech-label {
       margin: 8px 0;
       margin-left: 9px;
+      font-size: 18px;
+      color: $txtcolor;
     }
 
     .tech-checkbox {
@@ -206,9 +208,13 @@ $width: 45%;
       padding: 5px 0;
     }
 
-    .reappear{
-      .reappear-label{
+    .reappear {
+      .reappear-label {
         margin-right: 24px;
+      }
+
+      .reappear-rd{
+        display: flex;
       }
 
       label {
@@ -217,19 +223,24 @@ $width: 45%;
       input {
         margin: 8px 5px;
       }
-
     }
 
     .notice {
       width: 100%;
 
+
+
       .notice-radio-label {
         margin: 8px 0;
 
-        .notice-radio-la{
+        .notice-rd{
+          display: flex;
+        }
+
+        .notice-radio-la {
           margin-right: 24px;
         }
-  
+
         label {
           margin: 8px 5px;
         }
@@ -237,7 +248,7 @@ $width: 45%;
           margin: 8px 5px;
         }
 
-      }
+      }}
 
       .notice-period {
         @include qualificationflex();
@@ -269,4 +280,54 @@ $width: 45%;
   /* Button */
 
 
+input[type="checkbox"] {
+  display: block;
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+input[type="checkbox"]:not(:checked) {
+  background: url(/assets/icon/checkbox-unchecked.svg);
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(/assets/icon/checkbox-checked.svg);
+}
+
+.chkbx {
+  display: flex;
+}
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 1px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid green;
+  background-color: white;
+  border-radius: 50%;
+
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: green;
+}
+
+.fresher_qualification{
+  margin: $margin 0;
+  background: $bgcolor;
+  padding:$margin;
 }

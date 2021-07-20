@@ -1,0 +1,350 @@
+input[type="file"] {
+  display: none;
+}
+
+@mixin cardflex {
+  display: flex;
+}
+
+@mixin cardInlineFlex {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$padding: 16px;
+$bgColor: #ffffff;
+$titleColor: #1f7a54;
+$labelColor: #666666;
+$txtColor: #666666;
+$btnColor: #3fd28b;
+$internBGcolor: #eedd6b;
+$borderLine: #000000;
+$divColor: #dbefff;
+$space: 24px;
+
+.card-block {
+  opacity: 1;
+  box-shadow: 0px 4px 6px #0000003d;
+  background-color: $bgColor;
+}
+
+// Card
+.walk-card {
+  padding: $padding;
+
+  //   height:;
+  //   width:;
+
+  .title-bar {
+    @include cardflex();
+    justify-content: space-between;
+
+    button {
+      height: 28px;
+      width: 73px;
+      border: none;
+      background: $btnColor;
+      border-radius: 2px;
+      opacity: 1;
+    }
+  }
+
+  // Title
+  .title {
+    font-size: 23px;
+    font-weight: bold;
+    color: $titleColor;
+    opacity: 1;
+  }
+
+  //Description
+  .date-time {
+    margin: 16px 0;
+    .date-time-label {
+      font-size: 15px;
+      color: $labelColor;
+    }
+
+    // date & location
+    .date-location {
+      @include cardflex();
+      font-size: 18px;
+      margin-top: 8px;
+
+      .location {
+        @include cardflex();
+        margin-left: 12px;
+        margin-top: 2px;
+        border-left: 1px solid black;
+        padding-left: 8px;
+
+        img {
+          width: 16px;
+          height: 16px;
+          padding: 2px;
+        }
+
+        .city {
+          font-size: 15px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .seprater {
+    width: 100%;
+    border-bottom: 1px solid $borderLine;
+  }
+
+  //   roles
+  .roles {
+    margin-top: 16px;
+
+    .job-roles-text {
+      color: $labelColor;
+      font-size: 15px;
+    }
+    .job-roles-container {
+      @include cardflex();
+    }
+
+    .roles-loop {
+      .div-seprater {
+        margin: 0 8.5px;
+        // border-left: 1px solid $borderLine;
+        height: 16px;
+      }
+
+      .job-roles {
+        margin-top: 12px;
+
+        .inline {
+          height: 24px;
+          width: 24px;
+          border: 2px solid black;
+          border-radius: 15px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            height: 16px;
+            width: 16px;
+          }
+        }
+
+        .job-roles-label {
+          font-size: 18px;
+          margin: 0 12px;
+          color: #1f7a54;
+        }
+      }
+    }
+  }
+}
+
+.prerequiste {
+  .instructions {
+    background: $divColor;
+    height: 40px;
+    font-size: 20px;
+    @include cardflex();
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 16px;
+
+    .instructions-title {
+      padding: 10px 0;
+    }
+
+    .instruction-div-img {
+      @include cardInlineFlex();
+      border-left: 2px solid $labelColor;
+      padding: 0 5px;
+    }
+  }
+
+  .instruction-body {
+    padding: 16px;
+
+    .general-instructions {
+      .general-instructions-title {
+        color: $labelColor;
+        font-size: 15px;
+      }
+
+      .general-instructions-text {
+        padding: 16px 0;
+      }
+
+      .general-instructions-seprater {
+        border-top: 1px solid $borderLine;
+      }
+    }
+
+    .instructions-for-exam {
+      .instructions-for-exam-title {
+        padding-top: $padding;
+        color: $labelColor;
+        font-size: 15px;
+      }
+
+      .instructions-for-exam-text {
+        padding: $padding 0;
+      }
+
+      .instructions-for-exam-seprater {
+        border-top: 1px solid $borderLine;
+      }
+    }
+
+    .minimum-system-requirement {
+      .minimum-system-requirement-title {
+        padding-top: $padding;
+        color: $labelColor;
+        font-size: 15px;
+      }
+      .minimum-system-requirement-text {
+        padding: $padding 0;
+      }
+      .minimum-system-requirement-seprater {
+        border-top: 1px solid $borderLine;
+      }
+    }
+
+    .process {
+      .process-title {
+        padding-top: $padding;
+        color: $labelColor;
+        font-size: 15px;
+      }
+      .process-text {
+        padding: $padding 0;
+      }
+    }
+  }
+}
+
+.time-slots {
+  opacity: 1;
+  box-shadow: 0px 4px 6px #0000003d;
+  background-color: $bgColor;
+  padding: $padding;
+  margin: $space 0;
+
+  .time-preferences-title {
+    font-size: 20px;
+  }
+
+  .select-time-slot {
+    font-size: 15px;
+    color: $labelColor;
+  }
+
+  .select-body {
+    .select-time {
+      padding: $space 0;
+
+      .time-radio {
+        padding-top: 20px;
+      }
+    }
+
+    .time-seprater {
+      border-top: 1px solid $borderLine;
+    }
+
+    .select-preference {
+      margin: $padding 0;
+
+      .select-preference-title {
+        font-size: 15px;
+        color: $labelColor;
+      }
+
+      .select-preference-checkbox {
+        padding-top: 18px;
+      }
+    }
+
+    .resume {
+      margin-top: 19px;
+      @include cardflex();
+
+      .upload-resume {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.job-designation {
+  .designation {
+    opacity: 1;
+    box-shadow: 0px 4px 6px #0000003d;
+    margin: $space 0;
+    background-color: $bgColor;
+  }
+
+  .designation-header {
+    background: $divColor;
+    height: 40px;
+    font-size: 20px;
+    @include cardflex();
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 16px;
+  }
+
+  .designation-title {
+    padding: 10px 0;
+  }
+
+  .designation-div-img {
+    @include cardInlineFlex();
+    border-left: 2px solid $labelColor;
+    padding: 0 5px;
+  }
+
+  .designation-body {
+    padding: $padding;
+
+    .package {
+      .package-title {
+        color: $labelColor;
+        font-size: 15px;
+      }
+
+      .package-text {
+        margin: $padding 0;
+      }
+    }
+
+    .role-description {
+      .role-description-title {
+        color: $labelColor;
+        font-size: 15px;
+      }
+      .role-description-text {
+        margin: $padding 0;
+      }
+    }
+
+    .role-requirement {
+      .role-requirement-title {
+        color: $labelColor;
+        font-size: 15px;
+      }
+      .role-requirement-text {
+        margin: $padding 0;
+      }
+    }
+
+    .role-seprater {
+      border-top: 1px solid $borderLine;
+      margin-bottom: $padding;
+    }
+  }
+}

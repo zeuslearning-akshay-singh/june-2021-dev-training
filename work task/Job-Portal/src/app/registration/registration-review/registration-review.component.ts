@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PERSONAL } from '../register';
 
 @Component({
   selector: 'app-registration-review',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration-review.component.scss']
 })
 export class RegistrationReviewComponent implements OnInit {
+  
+  infos = PERSONAL;
+@Input() registered
+
 
   constructor() { }
 

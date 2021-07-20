@@ -1,0 +1,50 @@
+<div class="walk-card">
+  <!-- Title -->
+  <div class="title">{{ card.title }}</div>
+
+  <!-- Description -->
+  <div class="date-time">
+    <label class="date-time-label" for="date">Date & Time: </label>
+
+    <!-- Date & Location -->
+    <div class="date-location">
+      <div class="date" for="date-location">
+        {{ card.start_date }} to {{ card.end_date }}
+      </div>
+      <div class="location">
+        <img
+          class="location-img"
+          src="assets/images/location_on_black_24dp.svg"
+          alt="location"
+        />
+        <div class="city" for="location">{{ card.city }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seprater -->
+  <div class="seprater"></div>
+
+  <!-- Job Roles -->
+  <div class="roles">
+    <div class="job-roles-text">Job Roles:</div>
+    <div class="job-roles-container">
+      <div class="roles-loop" *ngFor="let role of card.roles">
+        <div class="job-roles">
+          <div class="inline">
+            <img class="job-roles-img" src="{{ role.img }}" alt="job-role" />
+          </div>
+          <label class="job-roles-label" for="job-roles">{{
+            role.designation
+          }}</label>
+        </div>
+        <div class="div-seprater"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <button type="button" routerLink="/login-component">VIEW MORE DETAILS</button>
+  </div>
+</div>
