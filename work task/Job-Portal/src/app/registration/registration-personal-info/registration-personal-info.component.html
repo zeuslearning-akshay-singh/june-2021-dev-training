@@ -1,6 +1,4 @@
 <ng-container [formGroup]="info">
-
-
   <div class="main-body-content" formGroupName="personal_detail">
     <div class="forms">
       <div class="pers-info-form">
@@ -102,7 +100,6 @@
         <div class="jobs">
           <label for="">Preferred Job Roles*</label><br />
           <div *ngFor="let pers_choice of choices">
-            
             <label class="chkbx">
               <input
                 type="checkbox"
@@ -112,10 +109,10 @@
                 (change)="onCheckboxChange($event, 'user')"
               />
               <label class="job-roles" for="job-role1">
-                {{pers_choice.name}}</label
-              ></label>
+                {{ pers_choice.name }}</label
+              ></label
+            >
           </div>
-
 
           <!-- <label class="chkbx">
             <input
@@ -196,7 +193,6 @@
           formControlName="profile_img"
           class="upload-resume"
           accept=".pdf,.doc"
-         
         />
         Upload Profile Picture
       </label>

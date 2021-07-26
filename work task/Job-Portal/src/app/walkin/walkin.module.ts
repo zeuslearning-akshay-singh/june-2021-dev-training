@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+
+import { ApiService } from '../api.service';
 
 import { WalkinRoutingModule } from './walkin-routing.module';
 import { WalkinComponentComponent } from './walkin-component/walkin-component.component';
@@ -16,8 +19,10 @@ import { JobrolesComponent } from './walkin-main-frame/walkin-details/jobroles/j
   declarations: [WalkinComponentComponent, WalkInCardComponent, WalkinMainFrameComponent, WalkinMainHeaderComponent, WalkinHallticketComponent, WalkinDetailsComponent, JobrolesComponent],
   imports: [
     CommonModule,
-    WalkinRoutingModule
+    WalkinRoutingModule,
+    HttpClientModule
   ],
-  exports:[ WalkinComponentComponent, WalkinMainFrameComponent, WalkinHallticketComponent]
+  exports:[ WalkinComponentComponent, WalkinMainFrameComponent, WalkinHallticketComponent],
+  providers: [ApiService]
 })
 export class WalkinModule { }

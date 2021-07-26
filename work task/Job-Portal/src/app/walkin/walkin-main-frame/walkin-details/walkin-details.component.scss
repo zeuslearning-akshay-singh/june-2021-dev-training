@@ -348,3 +348,52 @@ $space: 24px;
     }
   }
 }
+
+input[type="checkbox"] {
+  display: block;
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+input[type="checkbox"]:not(:checked) {
+  background: url(/assets/icon/checkbox-unchecked.svg);
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(/assets/icon/checkbox-checked.svg);
+}
+
+.chkbx {
+  display: flex;
+}
+
+.chkbx_text {
+  padding-top: 5px;
+}
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 1px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid green;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: green;
+}

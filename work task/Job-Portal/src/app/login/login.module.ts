@@ -6,13 +6,15 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { LoginHeaderComponent } from './login-header/login-header.component';
 import { LoginBodyComponent } from './login-body/login-body.component';
 import { LoginFooterComponent } from './login-footer/login-footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [LoginComponentComponent, LoginHeaderComponent, LoginBodyComponent, LoginFooterComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    ReactiveFormsModule
   ],
   exports : [LoginComponentComponent]
 })

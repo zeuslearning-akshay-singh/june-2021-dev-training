@@ -13,12 +13,12 @@
 
   <div class="seprater"></div>
   <!-- Body -->
-  <div class="hallticket-body">
+  <div class="hallticket-body" *ngFor="let info of entered_info; index as i">
     <!-- Date and Time -->
     <div class="date-time">
       <label class="date-time-title">Date & time of Walk-in</label>
-      <div class="text">{{ ticket.date }}</div>
-      <div class="text">{{ ticket.start_time }} to {{ ticket.end_time }}</div>
+      <div class="text">{{ info.date | date: "dd-MMM-yyyy" }}</div>
+      <div class="text">{{ info.start_time }} to {{ info.end_time }}</div>
     </div>
 
     <div class="seprater"></div>
@@ -27,12 +27,12 @@
     <div class="venue">
       <label for="venue" class="venue-title">Venue of Walk-In : </label>
 
-      <div class="address" *ngFor="let venue of ticket.venue">
-        <div class="text">{{ venue.address_line1 }}</div>
-        <div class="text">{{ venue.address_line2 }}</div>
-        <div class="text">{{ venue.address_line3 }}</div>
-        <div class="text">City: {{ venue.city }}-{{ venue.zip_code }}</div>
-        <div class="text">Phone No: {{ venue.phone_number }}</div>
+      <div class="address">
+        <div class="text">{{ info.address_line1 }}</div>
+        <div class="text">{{ info.address_line2 }}</div>
+        <div class="text">{{ info.address_line3 }}</div>
+        <div class="text">City: {{ info.city }}-{{ info.zip_code }}</div>
+        <div class="text">Phone No: {{ info.phone_number }}</div>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
     <!-- Things to remember -->
     <div class="things-to-remember">
       <label class="things-to-remember-title">Things To Remember</label>
-      <div class="text">{{ ticket.things_to_remember }}</div>
+      <div class="text">{{ info.things_to_remember }}</div>
     </div>
 
     <div class="seprater"></div>

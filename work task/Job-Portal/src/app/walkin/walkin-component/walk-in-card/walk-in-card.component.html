@@ -1,6 +1,6 @@
 <div class="walk-card">
   <!-- Title -->
-  <div class="title">{{ card.title }}</div>
+  <div class="title">{{ content.walk_in_title }}</div>
 
   <!-- Description -->
   <div class="date-time">
@@ -9,7 +9,7 @@
     <!-- Date & Location -->
     <div class="date-location">
       <div class="date" for="date-location">
-        {{ card.start_date }} to {{ card.end_date }}
+        {{ content.start_date | date: "dd-MMM-yyyy" }} to {{ content.end_date | date: "dd-MMM-yyyy" }}
       </div>
       <div class="location">
         <img
@@ -17,7 +17,7 @@
           src="assets/images/location_on_black_24dp.svg"
           alt="location"
         />
-        <div class="city" for="location">{{ card.city }}</div>
+        <div class="city" for="location">{{ content.city }}</div>
       </div>
     </div>
   </div>
@@ -29,14 +29,12 @@
   <div class="roles">
     <div class="job-roles-text">Job Roles:</div>
     <div class="job-roles-container">
-      <div class="roles-loop" *ngFor="let role of card.roles">
+      <div class="roles-loop" *ngFor="let role of content.jobroles">
         <div class="job-roles">
           <div class="inline">
-            <img class="job-roles-img" src="{{ role.img }}" alt="job-role" />
+            <img class="job-roles-img" src="assets/images/{{role}}.svg" />
           </div>
-          <label class="job-roles-label" for="job-roles">{{
-            role.designation
-          }}</label>
+          <label class="job-roles-label" for="job-roles">{{ role }}</label>
         </div>
         <div class="div-seprater"></div>
       </div>
@@ -45,6 +43,11 @@
 
   <!-- Buttons -->
   <div class="buttons">
-    <button type="button" routerLink="/login-component">VIEW MORE DETAILS</button>
+    <!-- Input for post -->
+    <input type="hidden" value="{{content.walk_in_id}}">
+
+    <button type="button" routerLink="/login-component">
+      VIEW MORE DETAILS
+    </button>
   </div>
 </div>

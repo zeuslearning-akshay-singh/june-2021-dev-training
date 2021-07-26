@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { RegistrationModule } from './registration/registration.module';
 import { WalkinModule } from './walkin/walkin.module';
+import {HttpClientModule} from '@angular/common/http';
+import { ApiService } from './api.service';
 
 
 
@@ -20,9 +22,10 @@ import { WalkinModule } from './walkin/walkin.module';
     LoginModule,
     RegistrationModule,
     WalkinModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

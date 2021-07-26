@@ -8,7 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class WalkInCardComponent implements OnInit {
 
 
-  @Input() card;
+  // @Input() card;
+  @Input() content;
+
+
+
   constructor() { }
 
   ngOnInit(): void {
