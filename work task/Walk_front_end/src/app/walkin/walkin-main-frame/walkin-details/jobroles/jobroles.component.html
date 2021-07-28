@@ -1,0 +1,27 @@
+<div class="designation-header">
+  <div class="designation-title">{{ jobProfile.designation }}</div>
+  <div class="designation-div-img" (click)="displayJob()">
+    <img [src]="img_src" alt="img" class="designation-img" />
+  </div>
+</div>
+
+<div class="designation-body" *ngIf="showJob">
+  <div class="package">
+    <div class="package-title">Gross Compensation Package :</div>
+    <div class="package-text">{{ jobProfile.package }}</div>
+  </div>
+
+  <div class="role-seprater"></div>
+
+  <div class="role-description">
+    <div class="role-description-title">Role Description :</div>
+    <div class="role-description-text">{{ jobProfile.job_description }}</div>
+  </div>
+
+  <div class="role-seprater"></div>
+
+  <div class="role-requirement">
+    <div class="role-requirement-title">Requirements :</div>
+    <div class="role-requirement-text">{{ jobProfile.job_requirement }}</div>
+  </div>
+</div>

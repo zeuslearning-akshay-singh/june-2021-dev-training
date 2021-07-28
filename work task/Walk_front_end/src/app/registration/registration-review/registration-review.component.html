@@ -1,0 +1,238 @@
+ <div>{{registered}}</div>
+<div class="Review" *ngFor="let reg of registered.personal_detail">
+  <div>{{registered.fname}}</div>
+</div> 
+<app-registration-personal-info [isreadOnly]="true"></app-registration-personal-info>
+<app-registration-qualification></app-registration-qualification>
+
+<div class="Review" *ngFor="let info of infos">
+
+    <div class="info_head">
+        <div class="head-text">Personal Information</div>
+        <div class="edit">
+            <img src="" alt="">
+            Edit
+        </div>
+    </div>
+  
+  <!-- Personal Information -->
+  <div class="personal_information">
+    <div class="personal_information_text">
+      <!-- First Name -->
+      <div class="personal_info">
+        <div class="text">First Name</div>
+        <div class="description">{{ info.firstname }}</div>
+      </div>
+      <!-- Last Name -->
+      <div class="personal_info">
+        <div class="text">Last Name</div>
+        <div class="description">{{ info.lastname }}</div>
+      </div>
+      <!-- Email -->
+      <div class="personal_info">
+        <div class="text">Email</div>
+        <div class="description">{{ info.email }}</div>
+      </div>
+      <!-- Phone Number -->
+      <div class="personal_info">
+        <div class="text">Phone Number</div>
+        <div class="description">{{ info.phonenumber }}</div>
+      </div>
+
+      <!-- Add Resume here -->
+      <div class="resume-pdf">
+        <img
+          class="resume-img"
+          src="assets/images/Upload_black_24dp.svg"
+          alt="Upload"
+        />
+        <label class="custom-file-upload">
+          <input type="file" class="upload-resume" accept=".pdf,.doc" />
+          Upload Updated Resume
+        </label>
+      </div>
+
+      <!-- Enter Portfolio -->
+      <div class="personal_info">
+        <div class="text">Enter Portfolio URL (if any)</div>
+        <div class="description">{{info.portfolio}}</div>
+      </div>
+      <!-- Prefered Job Role -->
+      <div class="personal_info">
+        <div class="text">Preferred Job Roles</div>
+        <div class="description" *ngFor="let job of info.preferred_job">
+          <div class="description">{{job.job_role}}</div>
+        </div>
+      </div>
+      <!-- Referral -->
+      <div class="personal_info">
+        <div class="text">
+          If You Are Registering Via A Referral, Please Mention Full Name Of The
+          Employee Who Referred You
+        </div>
+        <div class="description"></div>
+      </div>
+      <!-- Checkbox -->
+      <div class="personal_info">
+        <div class="text">Send me job related updates via mail</div>
+        
+        <div
+        class="select-preference-checkbox"
+        *ngFor="let preference of card.roles"
+      >
+        <input
+          type="checkbox"
+          name="walkin-preference"
+          value="{{ preference.designation }}"
+        />
+        <label for="walkin-preference"> {{ preference.designation }}</label
+        ><br />
+      </div>
+        <div class="description"></div>
+      </div>
+    </div>
+
+    <div class="profile_img">
+      <img src="assets/images/Pic.png" alt="" />
+    </div>
+  </div>
+
+  <div class="info_head">
+    <div class="head-text">Qualifications</div>
+    <div class="edit">
+        <img src="" alt="">
+        Edit
+    </div>
+</div>
+
+  <!-- Qualifications -->
+  <div class="qualifications">
+    <!-- Aggregate Percentage -->
+    <div class="personal_info">
+      <div class="text">Aggregate Percentage</div>
+      <div class="description">{{info.aggregate}}</div>
+    </div>
+    <!-- Year of Passing -->
+    <div class="personal_info">
+      <div class="text">Year Of Passing</div>
+      <div class="description">{{info.year_of_passing}}</div>
+    </div>
+
+    <!-- Notice Period Div Flex-->
+    <div class="forflex">
+      <!-- Qualification -->
+      <div class="personal_info">
+        <div class="text">Qualification</div>
+        <div class="description">{{info.qualification}}</div>
+      </div>
+
+      <!-- Stream -->
+      <div class="personal_info">
+        <div class="text">Stream</div>
+        <div class="description">{{info.stream}}</div>
+      </div>
+    </div>
+    <!-- Notice Period Div Flex-->
+    <div class="forflex">
+      <!-- College -->
+      <div class="personal_info">
+        <div class="text">College</div>
+        <div class="description">{{info.college}}</div>
+      </div>
+      <!-- Other College -->
+      <div class="personal_info">
+        <div class="text"></div>
+        <div class="description"></div>
+      </div>
+    </div>
+    <!-- College Location -->
+    <div class="personal_info">
+      <div class="text">Where is Your College Located?</div>
+      <div class="description">{{info.college_location}}</div>
+    </div>
+  </div>
+
+  <!-- Professional Qualifications -->
+  <div class="personal_qualification">
+    <div class="text">Applicant Type</div>
+    <div class="description">{{info.application_type}}</div>
+  </div>
+
+  <!-- Other Qualifications -->
+  <div class="other-qualifications">
+    <!-- Years of Experience -->
+    <div class="personal_info">
+      <div class="text">Years Of Experience</div>
+      <div class="description">{{info.years_of_experience}}</div>
+    </div>
+
+    <!-- Current CTC -->
+    <div class="personal_info">
+      <div class="text">Current CTC</div>
+      <div class="description">{{info.current_ctc}}</div>
+    </div>
+
+    <!-- Expected CTC -->
+    <div class="personal_info">
+      <div class="text">Expected CTC (in Rupees)</div>
+      <div class="description">{{info.expected_ctc}}</div>
+    </div>
+
+    <!-- Select Technologies Expertise -->
+    <div class="personal_info">
+      <div class="text">Select All the Technologies You Expertise In</div>
+      <div class="description"></div>
+    </div>
+
+    <!-- Others Technologies Expertise-->
+    <div class="personal_info">
+      <div class="text">If others, please mention</div>
+      <div class="description"></div>
+    </div>
+
+    <!-- Select Technologies Familiar -->
+    <div class="personal_info">
+      <div class="text">Select All the technologies You Are Familiar In</div>
+      <div class="description"></div>
+    </div>
+
+    <!-- Others Technologies Familiar -->
+    <div class="personal_info">
+      <div class="text">If Other, please mention</div>
+      <div class="description"></div>
+    </div>
+
+    <!-- Currently on Notice Period -->
+    <div class="personal_info">
+      <div class="text">Are You Currently On Notice Period</div>
+      <div class="description"></div>
+    </div>
+    <!-- Notice Period Div Flex-->
+    <div class="forflex">
+      <!-- Notice Period End -->
+      <div class="personal_info">
+        <div class="text">If Yes, When Will Your Notice Period End?</div>
+        <div class="description">{{info.notice_period_end}}</div>
+      </div>
+
+      <!-- Notice period month -->
+      <div class="personal_info">
+        <div class="text">How Long Is Your Notice Period? (Mention in Months)</div>
+        <div class="description">{{info.notice_period}}</div>
+      </div>
+    </div>
+
+    <!-- Applied to Zeus -->
+    <div class="personal_info">
+      <div class="text">Have You Appeared For Any Test By Zeus In the Past 12Months?</div>
+      <div class="description">{{info.apply_zeus}}</div>
+    </div>
+
+    <!-- Role applied before -->
+    <div class="personal_info">
+      <div class="text">If Yes, Which Role Did You Apply For</div>
+      <div class="description">{{info.any_apply}}</div>
+    </div>
+  </div>
+
+</div>
