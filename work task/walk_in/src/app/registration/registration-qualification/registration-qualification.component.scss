@@ -1,0 +1,333 @@
+@mixin qualificationflex {
+  display: flex;
+}
+
+$bgcolor: #ffffff;
+$titlecolor: #dbefff;
+$txtcolor: #222222;
+$labelcolor: #666666;
+$btncolor: #3fd28b;
+$shadow: #00000029;
+$margin: 24px;
+$htedu: 463px;
+$htpro: 100px;
+$htqual: 1247px;
+$novalue: none;
+$btnht: 28px;
+$btnwidth: 100px;
+
+$width: 45%;
+
+.register-qualification {
+  margin-top: $margin;
+
+  label {
+    color: $labelcolor;
+    font-size: 15px;
+    opacity: 1;
+  }
+  .input {
+    height: 25px;
+    font-size: 20px;
+    border: $novalue;
+    border-bottom: 2px solid $labelcolor;
+    opacity: 1;
+    width: 25%;
+  }
+  select {
+    height: 25px;
+    font-size: 20px;
+    border: $novalue;
+    border-bottom: 2px solid $labelcolor;
+    opacity: 1;
+    width: 19%;
+  }
+
+  /* Educational Qualification */
+  .educational {
+    background: $bgcolor;
+
+    .educational-qualification {
+      @include qualificationflex();
+      justify-content: space-between;
+      border: 1px solid $titlecolor;
+      background: $titlecolor;
+      box-shadow: 0px 4px 6px #00000029;
+      opacity: 1;
+
+      p {
+        padding-left: 16px;
+      }
+
+      img {
+        padding: 10px;
+        border-left: 1px solid $shadow;
+      }
+    }
+
+    label {
+      margin: 6px 0;
+    }
+    .input {
+      margin: 6px 0;
+    }
+
+    select {
+      margin: 6px 0;
+    }
+
+    .educational-container {
+      height: $htedu;
+      border-radius: 2px;
+      opacity: 1;
+      padding: 24px;
+
+      .quali-form {
+        @include qualificationflex();
+        flex-direction: column;
+        justify-content: space-between;
+        height: $htedu;
+
+        .study {
+          @include qualificationflex();
+          justify-content: space-between;
+
+          .qualify {
+            width: $width;
+          }
+
+          .stream {
+            width: $width;
+          }
+
+          select {
+            width: 100%;
+          }
+        }
+
+        .school {
+          @include qualificationflex();
+          justify-content: space-between;
+
+          .college {
+            width: $width;
+          }
+
+          .other-college {
+            width: $width;
+          }
+
+          select {
+            width: 100%;
+          }
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  /*Professional Qualification */
+
+  .professional {
+    margin-top: $margin;
+    .professional-qualification {
+      @include qualificationflex();
+      justify-content: space-between;
+      border: 1px solid $titlecolor;
+      background: $titlecolor;
+      box-shadow: 0px 4px 6px #00000029;
+      opacity: 1;
+
+      p {
+        padding-left: 16px;
+      }
+
+      img {
+        padding: 10px;
+        border-left: 1px solid $shadow;
+      }
+    }
+
+    .professional-container {
+      height: $htpro;
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      background: $bgcolor;
+
+      .pro-cont {
+        margin: $margin;
+      }
+
+      .pro-input {
+        margin-top: 12px;
+      }
+
+      .pro-fresher {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  /* Qualification */
+  .qualification-container {
+    margin-top: 8px;
+    background: $bgcolor;
+    padding: $margin;
+    @include qualificationflex();
+    flex-direction: column;
+    justify-content: space-around;
+    height: $htqual;
+
+    label {
+      margin: 8px 0;
+    }
+    input {
+      margin: 8px 0;
+    }
+
+    select {
+      margin: 8px 0;
+    }
+
+    .tech-label {
+      margin: 8px 0;
+      margin-left: 9px;
+      font-size: 18px;
+      color: $txtcolor;
+    }
+
+    .tech-checkbox {
+      margin: 8px 0;
+    }
+    .checkbox-input {
+      padding: 5px 0;
+    }
+
+    .reappear {
+      .reappear-label {
+        margin-right: 24px;
+      }
+
+      .reappear-rd{
+        display: flex;
+      }
+
+      label {
+        margin: 8px 5px;
+      }
+      input {
+        margin: 8px 5px;
+      }
+    }
+
+    .notice {
+      width: 100%;
+
+
+
+      .notice-radio-label {
+        margin: 8px 0;
+
+        .notice-rd{
+          display: flex;
+        }
+
+        .notice-radio-la {
+          margin-right: 24px;
+        }
+
+        label {
+          margin: 8px 5px;
+        }
+        input {
+          margin: 8px 5px;
+        }
+
+      }}
+
+      .notice-period {
+        @include qualificationflex();
+        justify-content: space-between;
+        margin: 8px 0;
+
+        .notice-radio {
+          margin: 0px 8px;
+        }
+
+        .cal {
+          width: 45%;
+
+          input {
+            width: 100%;
+          }
+        }
+
+        .month {
+          width: 45%;
+          select {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  /* Button */
+
+
+input[type="checkbox"] {
+  display: block;
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+input[type="checkbox"]:not(:checked) {
+  background: url(/assets/icon/checkbox-unchecked.svg);
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(/assets/icon/checkbox-checked.svg);
+}
+
+.chkbx {
+  display: flex;
+}
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 1px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid green;
+  background-color: white;
+  border-radius: 50%;
+
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: green;
+}
+
+.fresher_qualification{
+  margin: $margin 0;
+  background: $bgcolor;
+  padding:$margin;
+}

@@ -1,0 +1,168 @@
+<form [formGroup]="user_preferences">
+  <!-- Begins here -->
+  <div class="card-block">
+    <!-- Top Title BLock -->
+    <div class="walk-card">
+      <!-- Title -->
+      <div class="title-bar" *ngFor="let contents of info">
+        <div class="title">{{ contents.walk_in_title }}</div>
+        <button type="submit" routerLink="/walkin-hallticket">Apply</button>
+      </div>
+
+      <!--Description  -->
+      <div class="date-time" *ngFor="let contents of info">
+        <label class="date-time-label" for="date">Date & Time: </label>
+
+        <!-- Date & Location -->
+        <div class="date-location">
+          <div class="date" for="date-location">
+            {{ contents.start_date }} to {{ contents.end_date }}
+          </div>
+          <div class="location" *ngFor="let locality of location">
+            <img
+              class="location-img"
+              src="assets/images/location_on_black_24dp.svg"
+              alt="location"
+            />
+            <div class="city" for="location">{{ locality.city }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seprater -->
+      <div class="seprater"></div>
+
+      <!-- Job Roles -->
+      <div class="roles">
+        <div class="job-roles-text">Job Roles:</div>
+        <div class="job-roles-container">
+          <div class="roles-loop" *ngFor="let designation of destination">
+            <div class="job-roles">
+              <div class="inline">
+                <img
+                  class="job-roles-img"
+                  src="assets/images/{{ designation.designation }}.svg"
+                  alt="job-role"
+                />
+              </div>
+              <label class="job-roles-label" for="job-roles">{{
+                designation.designation
+              }}</label>
+            </div>
+            <div class="div-seprater"></div>
+          </div>
+        </div>
+      </div>
+      <!-- End of walk card  -->
+    </div>
+    <!-- Div for Instructions -->
+    <div class="prerequiste">
+      <!-- Instruction Title -->
+      <div class="instructions">
+        <div class="instructions-title">
+          Pre-requisites & Application Process
+        </div>
+        <div class="instruction-div-img" (click)="displayInst()">
+          <img [src]="pre_img_src" alt="image" class="insrtuction-img" />
+        </div>
+      </div>
+      <!-- Instruction body -->
+      <div class="instruction-body" *ngIf="showInst">
+        <div class="for_instruct" *ngFor="let instruct of instruction">
+          <!-- Genearal Instructions -->
+          <div class="general-instructions">
+            <div class="general-instructions-title">
+              {{ instruct.Instruction_text }}
+            </div>
+            <div class="general-instructions-text">
+              {{ instruct.Instruction }}
+            </div>
+            <div class="general-instructions-text">
+              {{ instruct.rounds }}
+            </div>
+            <div class="general-instructions-seprater"></div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+
+  <!-- Time slots -->
+  <div class="time-slots">
+    <!-- Time slot title -->
+    <div class="time-preferences-title">Time Slots & time-preferences</div>
+
+    <div class="select-body">
+      <!-- Time slot radio -->
+      <div class="select-time">
+        <div class="select-time-slot">Select a Time Slot :</div>
+        <div class="time-radio" *ngFor="let time of timeslot">
+          <!-- value will be change for radio -->
+          <input
+            type="radio"
+            name="time_slot"
+            formControlName="time_slot"
+            value="{{ time.walk_in_time_slot_id }}"
+          />
+          <label for="walkin-timeslot"
+            >{{ time.start_time }} to {{ time.end_time }}</label
+          >
+          <br />
+        </div>
+      </div>
+
+      <div class="time-seprater"></div>
+
+      <!-- Preferences -->
+      <div class="select-preference">
+        <div class="select-preference-title">Select Your Preference :</div>
+
+        <div
+          class="select-preference-checkbox"
+          *ngFor="let preferred of prefrences"
+        >
+          <div class="chkbx">
+            <input
+              type="checkbox"
+              name="walk_in_job_role"
+              formControlName="walk_in_job_role"
+              [value]="preferred.walk_in_job_role_id"
+              (change)="onCheckboxChange($event)"
+            />
+            <label for="walkin-preference" class="chkbx_text">
+              {{ preferred.designation }}</label
+            ><br />
+          </div>
+        </div>
+      </div>
+
+      <div class="time-seprater"></div>
+
+      <div class="resume">
+        <img src="assets/images/Upload_black_24dp.svg" alt="upload_img" />
+        <label class="custom-file-upload">
+          <input
+            type="file"
+            class="upload-resume"
+            formControlName="user_resume"
+            accept=".pdf,.doc"
+          />
+          Upload Updated Resume
+        </label>
+        <!-- <input type="file"  /> -->
+        <!-- <div class="upload-resume">Upload Updated Resume</div> -->
+      </div>
+      <pre>{{ user_preferences.value | json }}</pre>
+      <!--  -->
+    </div>
+  </div>
+
+  <!-- Job Roles -->
+  <div class="job-designation">
+    <!-- loop -->
+    <div class="designation" *ngFor="let jobProfile of job">
+      <app-jobroles [jobProfile]="jobProfile"></app-jobroles>
+    </div>
+  </div>
+</form>

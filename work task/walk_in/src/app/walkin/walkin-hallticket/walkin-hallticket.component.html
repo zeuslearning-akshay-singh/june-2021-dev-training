@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<app-walkin-main-header></app-walkin-main-header>
+
+<!-- Body -->
+<div class="hallticket">
+  <!-- Title -->
+  <div class="hallticket-title">
+    <div class="image" id="tick-mark"><span>&#10003;</span></div>
+    <div class="hallticket-title-text">
+      Congratulations! You have successfully applied for the walk-in opportunity
+    </div>
+  </div>
+
+  <div class="seprater"></div>
+  <!-- Body -->
+  <div class="hallticket-body" *ngFor="let info of entered_info; index as i">
+    <!-- Date and Time -->
+    <div class="date-time">
+      <label class="date-time-title">Date & time of Walk-in</label>
+      <div class="text">{{ info.date | date: "dd-MMM-yyyy" }}</div>
+      <div class="text">{{ info.start_time }} to {{ info.end_time }}</div>
+    </div>
+
+    <div class="seprater"></div>
+
+    <!-- Venue -->
+    <div class="venue">
+      <label for="venue" class="venue-title">Venue of Walk-In : </label>
+
+      <div class="address">
+        <div class="text">{{ info.address_line1 }}</div>
+        <div class="text">{{ info.address_line2 }}</div>
+        <div class="text">{{ info.address_line3 }}</div>
+        <div class="text">City: {{ info.city }}-{{ info.zip_code }}</div>
+        <div class="text">Phone No: {{ info.phone_number }}</div>
+      </div>
+    </div>
+
+    <div class="seprater"></div>
+
+    <!-- Things to remember -->
+    <div class="things-to-remember">
+      <label class="things-to-remember-title">Things To Remember</label>
+      <div class="text">{{ info.things_to_remember }}</div>
+    </div>
+
+    <div class="seprater"></div>
+  </div>
+
+  <!-- button on footer -->
+  <div class="buttons">
+    <button type="button">Download Hall Ticket</button>
+  </div>
+</div>
+
+<div class="base"></div>
