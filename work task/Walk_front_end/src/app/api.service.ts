@@ -20,7 +20,7 @@ export class ApiService {
     return this.http.get(`http://localhost/connection/Api/test.php?id=${guid}`);
   }
 
-  getHallticket(){
-    return this.http.get(this._hallticket);
+  getHallticket(id){
+    return this.http.get(`http://localhost/connection/Api/hallticket.php?id=${id}`);
   }
 }

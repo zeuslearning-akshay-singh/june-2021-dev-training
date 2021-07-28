@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'walkin-component', component: WalkinComponentComponent},
   {path: '', redirectTo:'/walkin-component',pathMatch: 'full'},
   {path: 'walkin-main-frame/:id', component: WalkinMainFrameComponent},
-  {path: 'walkin-hallticket', component: WalkinHallticketComponent}
+  {path: 'walkin-hallticket/:id', component: WalkinHallticketComponent}
 
 ];
 

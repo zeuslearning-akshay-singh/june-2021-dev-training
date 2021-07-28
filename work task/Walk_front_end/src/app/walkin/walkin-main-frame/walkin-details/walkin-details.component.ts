@@ -92,21 +92,14 @@ onCheckboxChange(e: any, section: string) {
 }
 
     FormSubmit(info){
-      console.log(info)
+      console.log(info['walk_in'])
       this.http.post('http://localhost/connection/insert.php',info)
       .subscribe((result)=>{this.msg = result;
   
         let num2 = this.msg['message'];
         console.log(num2)
         if(num2 === "Perfect"){
-          this.router.navigate(['/walkin-hallticket']);
-          
-          // var data = this.msg;
-          // var s = JSON.stringify(data[0].user_id);
-          // var d = JSON.parse(s);
-          // console.log(d);
-          // 
-          // localStorage.setItem('user', d);
+          this.router.navigate(['/walkin-hallticket',info['walk_in']]);
         }
       });
 
@@ -135,5 +128,4 @@ onCheckboxChange(e: any, section: string) {
       this.pre_img_src = "assets/images/expand_more_black_24dp.svg"
     }
   }
-
 }
