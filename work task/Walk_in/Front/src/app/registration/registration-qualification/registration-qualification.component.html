@@ -1,0 +1,372 @@
+<!-- Container begins here -->
+<ng-container [formGroup]="reg_qualification">
+  <div class="register-qualification" formGroupName="personal_detail">
+    <!---- Educational Qualification  --->
+    <div class="educational">
+      <div class="educational-qualification">
+        <p>Educational Qualification</p>
+        <img
+          src="assets/images/expand_less_black_24dp.svg"
+          alt="upward-arrow"
+        />
+      </div>
+      <div class="educational-container">
+        <div class="quali-form">
+          <div class="percent">
+            <label class="qualification-label" for="percentage">
+              Aggregate Percentage*
+            </label>
+            <br />
+            <input
+              formControlName="aggreagate_percentage"
+              class="input"
+              type="number"
+              min="1"
+              max="99"
+            />
+          </div>
+          <div class="passing">
+            <label class="qualification-label" for="passing-year">
+              Year Of Passing*
+            </label>
+            <br />
+            <select
+              formControlName="year_of_passing"
+              id="passing-year-select-id"
+            >
+              <option class="pass" value="2020">2020</option>
+              <option class="pass" value="2021">2021</option>
+              <option class="pass" value="2022">2022</option>
+            </select>
+          </div>
+          <div class="study">
+            <div class="qualify">
+              <label class="qualification-label" for="qualification">
+                Qualification*
+              </label>
+              <br />
+              <select
+                formControlName="qualification"
+                id="qualification-select-id"
+                class="qualification-select"
+              >
+                <option
+                  value="Bachelor in Technology (B.Tech)"
+                  class="qualification-option"
+                >
+                  Bachelor in Technology (B.Tech)
+                </option>
+              </select>
+            </div>
+
+            <div class="stream">
+              <label class="qualification-label" for="stream"> Stream* </label>
+              <br />
+              <select
+                formControlName="stream"
+                id="stream-select-id"
+                class="stream-select"
+              >
+                <option value="Information Technology" class="select-option">
+                  Information Technology
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="school">
+            <div class="college">
+              <label class="qualification-label" for="college">
+                College*
+              </label>
+              <br />
+              <select formControlName="college" class="college-select">
+                <option
+                  value="Pune Institute of Technology (PIT)"
+                  class="college-option"
+                >
+                  Pune Institute of Technology (PIT)
+                </option>
+              </select>
+            </div>
+            <div class="other-college">
+              <label class="qualification-label" for="other-college">
+                If Other, Please Enter Your College Name*
+              </label>
+              <br />
+              <input
+                formControlName="other_college"
+                type="text"
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="location">
+            <label class="qualification-label" for="other-college">
+              Where is your College Located?*
+            </label>
+            <br />
+            <input
+              formControlName="college_location"
+              type="text"
+              class="input"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!---- Professional Qualification  --->
+    <div class="professional">
+      <div class="professional-qualification">
+        <p>Professional Qualifications</p>
+        <img
+          src="assets/images/expand_less_black_24dp.svg"
+          alt="upward-arrow"
+        />
+      </div>
+      <div class="professional-container">
+        <div class="pro-cont">
+          <label for="professional-container">Application Type*</label>
+          <br />
+          <div class="pro-input">
+            <input
+              formControlName="applicant_type"
+              type="radio"
+              [(ngModel)]="options"
+              value="Fresher"
+            />
+            <label class="pro-fresher" for="Fresher">Fresher</label>
+            <input
+              formControlName="applicant_type"
+              type="radio"
+              [(ngModel)]="options"
+              value="Experienced"
+            />
+            <label for="Experienced">Experienced</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fresher -->
+    <div class="fresher_qualification" *ngIf="options === 'Fresher'">
+      <div class="tech">
+        <label for="technologies"
+          >Select All the Technologies You Familiar In*</label
+        ><br />
+        <br />
+        <!-- Familiar Tech -->
+        <div class="checkbox-input">
+          <div *ngFor="let tech of technology">
+            <label class="chkbx">
+              <input
+                class="tech-checkbox"
+                type="checkbox"
+                (change)="onCheckboxChange($event, 'familiar')"
+                value="{{ tech.value }}"
+              />
+              <label class="tech-label" for="expertise_technology">
+                {{ tech.name }}
+              </label>
+              <br />
+            </label>
+          </div>
+          <br />
+        </div>
+      </div>
+
+      <label for="other_familiar_tech">If Others, Please Mention</label>
+      <br />
+      <input
+        formControlName="other_expertise_technology"
+        type="text"
+        class="input"
+      />
+      <br />
+      <!-- Fresher Reappear -->
+      <br />
+      <div class="reappear">
+        <label for="reappear"
+          >Have You Appeared For Any Test By Zeus In The Past 12 Months?*</label
+        >
+
+        <br />
+        <div class="reappear-rd">
+          <input formControlName="appeared_before" type="radio" value="Yes" />
+          <label class="reappear-label" for="Yes">Yes</label>
+          <input formControlName="appeared_before" type="radio" value="No" />
+          <label for="No">No</label><br />
+        </div>
+        <br />
+
+        <div class="reappear-yes">
+          <label for="reappear-yes"
+            >If Yes, Which Role Did You Apply For?</label
+          >
+          <br />
+          <input
+            formControlName="role_applied_before"
+            type="text"
+            class="input"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!---- Qualification for Experienced --->
+    <div class="qualification-container" *ngIf="options === 'Experienced'">
+      <div class="yr-exp">
+        <label class="qualification-label" for="year-experience">
+          Years of Experience* </label
+        ><br />
+        <input formControlName="experience_years" type="text" class="input" />
+      </div>
+
+      <div class="cur-ctc">
+        <label class="qualification-label" for="current_ctc">
+          Current CTC* (In Rupees) </label
+        ><br />
+        <input formControlName="current_ctc" type="text" class="input" />
+      </div>
+
+      <div class="exp-ctc">
+        <label class="qualification-label" for="expected_ctc">
+          Expected CTC* (In Rupees) </label
+        ><br />
+        <input formControlName="expected_ctc" type="text" class="input" />
+      </div>
+
+      <div class="tech">
+        <label for="technologies"
+          >Select All the Technologies You Expertise In*</label
+        ><br />
+
+        <!-- Familiar Tech -->
+        <div class="checkbox-input">
+          <div *ngFor="let tech of technology">
+            <label class="chkbx">
+              <input
+                class="tech-checkbox"
+                (change)="onCheckboxChange($event, 'expertise')"
+                type="checkbox"
+                value="{{ tech.value }}"
+              />
+              <label class="tech-label" for="expertise_technology">
+                {{ tech.name }}
+              </label>
+              <br />
+            </label>
+          </div>
+          <br />
+        </div>
+      </div>
+      <!--  -->
+
+      <label for="other_familiar_tech">If Others, Please Mention</label>
+      <input
+        formControlName="other_expertise_technology"
+        type="text"
+        class="input"
+      />
+      <br />
+
+      <div class="tech-familiar">
+        <label for="technologies-familiar"
+          >Select All the Technologies You Familiar In*</label
+        ><br />
+
+        <!-- Familiar -->
+        <div class="checkbox-input">
+          <div *ngFor="let tech of technology">
+            <label class="chkbx">
+              <input
+                class="tech-checkbox"
+                type="checkbox"
+                (change)="onCheckboxChange($event, 'familiar')"
+                value="{{ tech.value }}"
+              />
+              <label class="tech-label" for="familiar_technology">{{
+                tech.name
+              }}</label>
+              <br />
+            </label>
+          </div>
+          <br />
+        </div>
+
+        <label for="other_familiar_tech">If Others, Please Mention</label>
+        <br />
+        <input
+          formControlName="other_familiar_technology"
+          type="text"
+          class="input"
+        />
+        <br />
+      </div>
+
+      <div class="notice">
+        <div class="notice-radio-label">
+          <label for="notice">Are you Currently On Notice Period?*</label>
+          <br />
+          <div class="notice-rd">
+            <input
+              formControlName="on_notice_period"
+              type="radio"
+              value="Yes"
+            />
+            <label class="notice-radio-la" for="Yes">Yes</label>
+            <input formControlName="on_notice_period" type="radio" value="No" />
+            <label for="No">No</label>
+          </div>
+        </div>
+
+        <div class="notice-period">
+          <div class="cal">
+            <label for="cal">If Yes, When Will Your Notice Period End?*</label>
+            <br />
+            <input
+              formControlName="notice_period_end"
+              type="date"
+              class="input"
+            />
+          </div>
+          <div class="month">
+            <label for="month">How Long Is Your Notice Period?*</label>
+            <br />
+            <select formControlName="long_notice_period" class="month-select">
+              <option value="2 months" class="month-option">2 months</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="reappear">
+        <label for="reappear"
+          >Have You Appeared For Any Test By Zeus In The Past 12 Months?*</label
+        >
+        <br />
+        <div class="reappear-rd">
+          <input formControlName="appeared_before" type="radio" value="Yes" />
+          <label class="reappear-label" for="Yes">Yes</label>
+          <input formControlName="appeared_before" type="radio" value="No" />
+          <label for="No">No</label><br />
+        </div>
+
+        <div class="reappear-yes">
+          <label for="reappear-yes"
+            >If Yes, Which Role Did You Apply For?</label
+          >
+          <br />
+          <input
+            formControlName="role_applied_before"
+            type="text"
+            class="input"
+          />
+        </div>
+      </div>
+    </div>
+    <!---- Qualification Button --->
+  </div>
+</ng-container>

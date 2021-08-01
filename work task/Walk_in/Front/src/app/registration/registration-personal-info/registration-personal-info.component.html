@@ -1,0 +1,227 @@
+<ng-container [formGroup]="info">
+  <div class="main-body-content" formGroupName="personal_detail">
+    <div class="forms">
+      <div class="pers-info-form">
+        <div class="firstname">
+          <label for="fname">First Name*</label><br />
+          <input
+            class="input"
+            type="text"
+            formControlName="first_name"
+            [readonly]="isreadOnly"
+            [ngClass]="isreadOnly ? 'read' : 'write'"
+            id="fname"
+            name="fname"
+          /><br />
+        </div>
+        <div class="lastname">
+          <label for="lname">Last Name*</label><br />
+          <input
+            class="input"
+            type="text"
+            formControlName="last_name"
+            [readonly]="isreadOnly"
+            [ngClass]="isreadOnly ? 'read' : 'write'"
+            id="lname"
+            name="lname"
+          /><br />
+        </div>
+        <div class="email-id">
+          <label for="email">Email*</label><br />
+          <input
+            class="input"
+            type="email"
+            formControlName="email_id"
+            [readonly]="isreadOnly"
+            [ngClass]="isreadOnly ? 'read' : 'write'"
+            id="email"
+            name="email"
+          /><br />
+        </div>
+
+        <div class="password">
+          <label for="password">Password*</label><br />
+          <input
+            class="input"
+            type="password"
+            formControlName="password"
+            [readonly]="isreadOnly"
+            [ngClass]="isreadOnly ? 'read' : 'write'"
+            id="password"
+            name="password"
+          /><br />
+        </div>
+
+        <div class="telephone">
+          <label for="">Phone Number*<br /></label>
+          +
+          <input
+            class="code"
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="91"
+            pattern="[0-9]{2}"
+            required
+          />
+          <input
+            formControlName="phone"
+            class="phone-call"
+            type="tel"
+            id="phone"
+            formControlName="phone_number"
+            [readonly]="isreadOnly"
+            [ngClass]="isreadOnly ? 'read' : 'write'"
+            name="phone"
+            placeholder="1234567890"
+            pattern="[0-9]{10}"
+            required
+          />
+          <br />
+        </div>
+
+        <div class="resume-pdf">
+          <label for=""></label>
+          <img
+            class="resume-img"
+            src="assets/images/Upload_black_24dp.svg"
+            alt="Upload"
+          />
+          <label class="custom-file-upload">
+            <input
+              type="file"
+              formControlName="resume_link"
+              class="upload-resume"
+              accept=".pdf,.doc"
+            />
+            Upload Updated Resume
+          </label>
+        </div>
+
+        <div class="protfolio">
+          <label for="protfolio-link">Enter Protfolio URL (if any)</label><br />
+          <input
+            class="input"
+            type="url"
+            formControlName="protfolio_url"
+            id="protfolio-link"
+            name="protfolio-link"
+          /><br />
+        </div>
+
+        <!-- Checkbox -->
+
+        <div class="jobs">
+          <label for="">Preferred Job Roles*</label><br />
+          <div *ngFor="let pers_choice of choices">
+            <label class="chkbx">
+              <input
+                type="checkbox"
+                id="job-role1"
+                name="job-role1"
+                [value]="pers_choice.value"
+                (change)="onCheckboxChange($event, 'user')"
+              />
+              <label class="job-roles" for="job-role1">
+                {{ pers_choice.name }}</label
+              ></label
+            >
+          </div>
+
+          <!-- <label class="chkbx">
+            <input
+              type="checkbox"
+              id="job-role1"
+              name="job-role1"
+              value="Role1"
+            />
+            <label class="job-roles" for="job-role1">
+              Instructional Designer</label
+            ></label
+          >
+          <label class="chkbx">
+            <input
+              type="checkbox"
+              id="job-role2"
+              name="job-role2"
+              value="Role2"
+            />
+            <label class="job-roles" for="job-role2"> Software Engineer</label
+            ><br />
+          </label>
+
+          <label class="chkbx">
+            <input
+              type="checkbox"
+              id="job-role3"
+              name="job-role3"
+              value="Role3"
+            />
+            <label class="job-roles" for="job-role3">
+              Software Quality Engineer</label
+            ><br />
+          </label> -->
+        </div>
+
+        <div class="referrals">
+          <label for="referral"
+            >If You Are Registering Via A Referral, Please Mention Full Name Of
+            The Employee Who Referred You</label
+          ><br />
+          <input
+            class="input"
+            formControlName="referral_employee"
+            type="text"
+            id="referral"
+            name="referral"
+          /><br />
+        </div>
+        <div class="update">
+          <label class="chkbx">
+            <input
+              type="checkbox"
+              id="updates"
+              name="updates"
+              value="updates"
+              formControlName="update_regarding_job"
+            />
+            <label class="update" for="updates">
+              Send me job related updates via mail</label
+            ><br />
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile">
+      <img
+        class="profile-picture"
+        src="assets/Image/profile-user.png"
+        alt="Profile"
+      />
+      <br />
+      <label class="display-picture" for="">Upload display picture</label>
+      <br />
+      <label for="" class="file-upload">
+        <input
+          type="file"
+          formControlName="img"
+          class="upload-resume"
+          accept=".pdf,.doc"
+        />
+        Upload Profile Picture
+      </label>
+
+      <!-- <input
+        class="upload-picture"
+        type="file"
+        id="profile_pic"
+        name="profile_pic"
+        accept=".jpg, .jpeg, .png"
+      /> -->
+
+      <br />
+      <label for="" class="note">Max image size: 5 MB</label>
+    </div>
+  </div>
+</ng-container>

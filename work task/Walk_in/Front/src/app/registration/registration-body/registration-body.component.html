@@ -1,0 +1,62 @@
+<div class="body">
+  <!-- Body Header --->
+  <div class="head">
+    <div class="image">
+      <img class="arrow" src="assets/icon/sort.svg" alt="" />
+    </div>
+    <div class="title">Create an Account</div>
+    <div class="buttons">
+      <a href="#" class="button-link">
+        <button class="cancel-button" type="button">Cancel</button>
+      </a>
+      
+        <button class="create-button" type="submit" (click)="FormSub(register.value)" >Create</button>
+    </div>
+  </div>
+
+  <!---  Body Main ----->
+  <div class="main-body">
+    <!--- Main-Body-Header ----->
+    <div class="main-body-header">
+      <div class="package">
+        <div class="number">1</div>
+        <div class="text">Personal Information</div>
+      </div>
+      <div class="underline"></div>
+      <div class="package">
+        <div class="number">2</div>
+        <div class="text">Qualification</div>
+      </div>
+      <div class="underline"></div>
+      <div class="package">
+        <div class="number">3</div>
+        <div class="text">Review and Proceed</div>
+      </div>
+    </div>
+    <!--- Main-Body-Content ----->
+    <form (ngSubmit)="submit()" [formGroup]="register">
+      <div class="per-info" *ngIf="step == 1">
+        <app-registration-personal-info></app-registration-personal-info>
+      </div>
+
+      <div class="qual" *ngIf="step == 2">
+        <app-registration-qualification></app-registration-qualification>
+      </div>
+
+      <div class="reviewed" *ngIf="step == 3">
+        <app-registration-review></app-registration-review>
+      </div>
+
+      <div class="footer-buttons">
+        <button type="button" *ngIf="step != 1" (click)="previous()">
+          Previous
+        </button>
+
+        <button type="submit" *ngIf="step != 3">Next</button>
+
+        <!-- <button type="submit" *ngIf="step == 3" >Submit</button> -->
+      </div>
+    </form>
+  </div>
+</div>
+<pre>{{ register.value | json }}</pre>

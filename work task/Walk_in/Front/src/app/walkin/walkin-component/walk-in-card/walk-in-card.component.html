@@ -1,0 +1,53 @@
+<div class="walk-card">
+  <!-- Title -->
+  <div class="title">{{ content.walk_in_title }}</div>
+
+  <!-- Description -->
+  <div class="date-time">
+    <label class="date-time-label" for="date">Date & Time: </label>
+
+    <!-- Date & Location -->
+    <div class="date-location">
+      <div class="date" for="date-location">
+        {{ content.start_date | date: "dd-MMM-yyyy" }} to {{ content.end_date | date: "dd-MMM-yyyy" }}
+      </div>
+      <div class="location">
+        <img
+          class="location-img"
+          src="assets/images/location_on_black_24dp.svg"
+          alt="location"
+        />
+        <div class="city" for="location">{{ content.city }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seprater -->
+  <div class="seprater"></div>
+
+  <!-- Job Roles -->
+  <div class="roles">
+    <div class="job-roles-text">Job Roles:</div>
+    <div class="job-roles-container">
+      <div class="roles-loop" *ngFor="let role of content.jobroles">
+        <div class="job-roles">
+          <div class="inline">
+            <img class="job-roles-img" src="assets/images/{{role}}.svg" />
+          </div>
+          <label class="job-roles-label" for="job-roles">{{ role }}</label>
+        </div>
+        <div class="div-seprater"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <!-- Input for post -->
+    <input type="hidden" value="{{content.walk_in_id}}">
+
+    <button type="button" (click)="onClickLogin(content.walk_in_id)">
+      VIEW MORE DETAILS
+    </button>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+@mixin displayflex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$bgcolor: #ffffff;
+$checkcolor: #18be2e;
+$btncolor: #3fd28b;
+$mainbgcolor: #eeeeee;
+$margin: 24px;
+$bodyMargin: 16px;
+
+.hallticket {
+  background: $bgcolor;
+  margin: 0 $margin;
+  margin-top: 76px;
+  box-shadow: 0px 4px 6px #0000003d;
+  opacity: 1;
+  padding: $bodyMargin;
+  margin-bottom: $margin;
+
+  .hallticket-title {
+    text-align: center;
+    @include displayflex();
+    flex-direction: column;
+
+    .image {
+      height: 100px;
+      width: 100px;
+      background: $checkcolor;
+      border-radius: 50px;
+      box-shadow: 0px 4px 6px #00000029;
+      opacity: 1;
+      position: absolute;
+      top: 83px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      span{
+          color: white;
+          font-size: 80px;;
+      }
+    }
+
+    .hallticket-title-text {
+      margin: $margin 0;
+      font-size: 23px;
+      font-weight: bold;
+    }
+  }
+  label {
+    font-size: 15px;
+    color: #666666;
+  }
+
+  .text {
+    margin: 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .seprater {
+    border-top: 1px solid #000000;
+    opacity: 0.12;
+  }
+
+  .date-time {
+    margin: $bodyMargin 0;
+  }
+
+  .venue {
+    margin: $bodyMargin 0;
+  }
+
+  .things-to-remember {
+    margin: $bodyMargin 0;
+  }
+
+  .buttons {
+    @include displayflex();
+    justify-content: center;
+    align-items: center;
+    button {
+      margin-top: $margin;
+      margin-bottom: 8px;
+      height: 28px;
+      width: 202px;
+      border: none;
+      background: #3fd28b 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 5px #0000003d;
+      opacity: 1;
+    }
+  }
+}
+
+.base {
+  padding: 1px;
+}
